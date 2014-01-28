@@ -1,0 +1,50 @@
+﻿@model List<ClientOnBoarding.Models.Contacts>
+
+<div id="ContactsGrid" class="tab-pane active">
+    <div class="pageBorder">
+        <div class="form-group contactsGridform">
+            <a class="buttonhover" data-action="ajax" id="add_contact" href="/CompanyVendor/Contacts" data-id="0" dialog-title="Add Contact" dialog-resize="false" dialog-width="600" style="text-decoration: none">Add Contact</a>
+            <input id="CustomerID" type="hidden" value="@ViewBag.VBCustomerID" />
+
+        </div>
+        @if (Model.Count > 0)
+        {
+            <table class="table table-bordered">
+                <thead>
+                    <tr style="background-color: ActiveCaption">
+                        <td class="col-xs-3"><strong>First Name</strong> </td>
+                        <td class="col-xs-3"><strong>Last Name</strong> </td>
+                        <td class="col-xs-1"><strong>Code</strong></td>
+                        <td class="col-xs-2"><strong>Phone</strong></td>
+                        <td class="col-xs-2"><strong>Status</strong> </td>
+                        <td class="col-xs-1"><strong>Edit</strong> </td>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (Contacts contact in Model)
+                    {
+                        <tr>
+                            <td class="col-xs-3">@contact.ContactFirstName</td>
+                            <td class="col-xs-3">@contact.ContactLastName</td>
+                            <td class="col-xs-1">@contact.ConType</td>
+                            <td class="col-xs-2">@contact.PhoneNumber</td>
+                            @if (contact.Inactive)
+                            { 
+                                <td class="col-xs-2"><b style="color: red">In Active</b></td>
+                            }
+                            else
+                            {
+                                <td class="col-xs-2"><b style="color: green">Active</b> </td>
+                            }
+                            <td class="col-xs-1" style="margin-left: -1.5%">
+                                <button type="button" data-link-edit="Edit" href="/CompanyVendor/Contacts/@contact.ContactID" data-id="@contact.ContactID" class="btn btn-link" style="margin-top: -10px">Edit</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+        }
+    </div>
+</div>

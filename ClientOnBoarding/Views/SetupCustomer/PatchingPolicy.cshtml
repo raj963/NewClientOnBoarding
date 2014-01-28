@@ -1,0 +1,415 @@
+﻿@model ClientOnBoarding.Models.tblPatchingPolicy
+
+<div class="pageBorder1">
+    <form class="form-horizontal customerForms" role="form" id="frmCustomer" action="/SetupCustomer/PatchingPolicy" method="post">
+        @*  @Html.HiddenFor(model => model.PatchingPolicyID, new { maxlength = 50, @class = "form-control" })*@
+
+        <div class="panel panel-default">
+             <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                        <h4 class="panel-title">
+                            <b>Workstation</b>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in">
+
+                        <div class="panel-body">
+                            @Html.HiddenFor(model => model.PatchingPolicyIDWR)
+
+                            <div class="form-group">
+                                <div class="pull-left LableFont">
+                                    <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Patching Policy Name<span class="red"> *</span></label>
+                                </div>
+                                <div class="pull-left">
+                                    <div class="textBoxCompany">@Html.TextBoxFor(model => model.PolicyNameWR, new { maxlength = 50, @class = "form-control" })
+                                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.PolicyNameWR)</div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="form-group">
+                                <div class="pull-left LableFont">
+                                    <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Patching Window </label>
+                                </div>
+                                <div class="pull-left">
+                                    <div class="textBox customerPmExp gapt0p">
+                                        @Html.TextBoxFor(model => model.WindowStartTimeWR, new { maxlength = 50, @class = "form-control jquery_ptTimeSelect" })
+                                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.WindowStartTimeWR)</div>
+                                    </div>
+                                </div>
+                                <div class="pull-left">
+                                    <div class="textBox customerPmExp gaptime">
+                                        @Html.TextBoxFor(model => model.WindowEndTimeWR, new { maxlength = 50, @class = "form-control jquery_ptTimeSelect" })
+                                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.WindowEndTimeWR)</div>
+                                    </div>
+                                </div>
+                                <div class="pull-left">
+                                    <div class="textBox customerPmExp">
+                                        @Html.DropDownListFor(model => model.WindowTimeZoneWR.ID, new SelectList(ViewBag.TimeZones, "ID", "Name"), new { @class = "DropDownListexp form-control" })
+                                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.WindowTimeZoneWR.ID)</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="pull-left Largefont">
+                                <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Define Monthly Schedule</label><br />
+                                <br />
+                            </div>
+                            <div class="clearfix"></div>
+                            @*    <div class="form-group">
+                        <div class="pull-left LableFont">
+                            <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Define Patching Schedule  </label>
+                        </div>
+                        <div class="pull-left">
+                            <div class="textBoxCompany">
+                                @Html.DropDownListFor(model => model.DefineScheduleTypeWR.ID, new SelectList(ViewBag.Schedule, "ID", "Name"), new { @class = "form-control" })
+                                <div class="ValidationError">@Html.ValidationMessageFor(model => model.DefineScheduleTypeWR.ID)</div>
+                            </div>
+                        </div>
+                    </div>*@
+                            <div class="clearfix"></div>
+                            <div class="form-group">
+                                <div class="pull-left LableFont">
+                                    <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Select Week of the Month  </label>
+                                </div>
+                                <div class="pull-left">
+                                    <div class="textBoxCompany">
+                                        @Html.DropDownListFor(model => model.WeekOfDayWR.ID, new SelectList(ViewBag.WeekOfMonth, "ID", "Name"), new { @class = "form-control" })
+                                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.WeekOfDayWR.ID)</div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="clearfix"></div>
+                            @*      <div class="form-group">
+                        <div class="pull-left LableFont">
+                            <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Define Month of Day (for Monthly Schedule) </label>
+                        </div>
+
+                        <div class="pull-left">
+                            <div class="textBoxCompany">
+                                @Html.DropDownListFor(model => model.MonthOfDayWR.ID, new SelectList(ViewBag.MonthOfDay, "ID", "Name"), new { @class = "form-control" })
+                                <div class="ValidationError">@Html.ValidationMessageFor(model => model.MonthOfDayWR.ID)</div>
+                            </div>
+                        </div>
+                    </div>*@
+
+                            <div class="clearfix"></div>
+                            <div class="form-group">
+                                <div class="pull-left LableFont">
+                                    <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Reboot Permission </label>
+                                </div>
+                                <div class="pull-left">
+                                    <div class="textBoxCompany">
+                                        @Html.DropDownListFor(model => model.RebootPermissionWR.ID, new SelectList(ViewBag.OptionTypeBag, "ID", "Name"), new { @class = "form-control" })
+                                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.RebootPermissionWR.ID)</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="form-group">
+                                <div class="pull-left LableFont">
+                                    <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Allowed Reboot Window</label>
+                                </div>
+                                <div class="pull-left">
+                                    <div class="textBox customerPmExp gapt0p">
+                                        @Html.TextBoxFor(model => model.RebootWindowStartTimeWR, new { maxlength = 50, @class = "form-control jquery_ptTimeSelect" })
+                                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.RebootWindowStartTimeWR)</div>
+                                    </div>
+                                </div>
+                                <div class="pull-left">
+                                    <div class="textBox customerPmExp gaptime">
+                                        @Html.TextBoxFor(model => model.RebootWindowEndTimeWR, new { maxlength = 50, @class = "form-control jquery_ptTimeSelect" })
+                                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.RebootWindowEndTimeWR)</div>
+                                    </div>
+                                </div>
+                                <div class="pull-left">
+                                    <div class="textBox customerPmExp">
+                                        @Html.DropDownListFor(model => model.RebootWindowTimeZoneWR.ID, new SelectList(ViewBag.TimeZones, "ID", "Name"), new { @class = "DropDownListexp form-control" })
+                                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.RebootWindowTimeZoneWR.ID)</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                        <h4 class="panel-title"><b>Servers</b>
+                        </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse ">
+                        <div class="panel-body">
+                            @Html.HiddenFor(model => model.PatchingPolicyIDSR)
+                            <div class="clearfix"></div>
+                            <div class="form-group">
+                                <div class="pull-left LableFont">
+                                    <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Patching Policy Name<span class="red"> *</span></label>
+                                </div>
+                                <div class="pull-left">
+                                    <div class="textBoxCompany">@Html.TextBoxFor(model => model.PolicyNameSR, new { maxlength = 50, @class = "form-control" })
+                                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.PolicyNameSR)</div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="form-group">
+                                <div class="pull-left LableFont">
+                                    <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Patching Window </label>
+                                </div>
+                                <div class="pull-left">
+                                    <div class="textBox customerPmExp gapt0p">
+                                        @Html.TextBoxFor(model => model.WindowStartTimeSR, new { maxlength = 50, @class = "form-control jquery_ptTimeSelect" })
+                                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.WindowStartTimeSR)</div>
+                                    </div>
+                                </div>
+                                <div class="pull-left">
+                                    <div class="textBox customerPmExp gaptime">
+                                        @Html.TextBoxFor(model => model.WindowEndTimeSR, new { maxlength = 50, @class = "form-control jquery_ptTimeSelect" })
+                                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.WindowEndTimeSR)</div>
+                                    </div>
+                                </div>
+                                <div class="pull-left">
+                                    <div class="textBox customerPmExp">
+                                        @Html.DropDownListFor(model => model.WindowTimeZoneSR.ID, new SelectList(ViewBag.TimeZones, "ID", "Name"), new { @class = "DropDownListexp form-control" })
+                                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.WindowTimeZoneSR.ID)</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="pull-left Largefont">
+                                <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Define Monthly Schedule</label><br />
+                                <br />
+                            </div>
+                            <div class="clearfix"></div>
+                            @*   <div class="form-group">
+                        <div class="pull-left LableFont">
+                            <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Define Patching Schedule  </label>
+                        </div>
+                        <div class="pull-left">
+                            <div class="textBoxCompany">
+                                @Html.DropDownListFor(model => model.DefineScheduleTypeSR.ID, new SelectList(ViewBag.Schedule, "ID", "Name"), new { @class = "form-control" })
+                                <div class="ValidationError">@Html.ValidationMessageFor(model => model.DefineScheduleTypeSR.ID)</div>
+                            </div>
+                        </div>
+                    </div>*@
+                            <div class="clearfix"></div>
+                            <div class="form-group">
+                                <div class="pull-left LableFont">
+                                    <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Select Week of the Month </label>
+                                </div>
+                                <div class="pull-left">
+                                    <div class="textBoxCompany">
+                                        @Html.DropDownListFor(model => model.WeekOfDaySR.ID, new SelectList(ViewBag.WeekOfMonth, "ID", "Name"), new { @class = "form-control" })
+                                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.WeekOfDaySR.ID)</div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="clearfix"></div>
+                            @*      <div class="form-group">
+                        <div class="pull-left LableFont">
+                            <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Define Month of Day (for Monthly Schedule) </label>
+                        </div>
+
+                        <div class="pull-left">
+                            <div class="textBoxCompany">
+                                @Html.DropDownListFor(model => model.MonthOfDaySR.ID, new SelectList(ViewBag.MonthOfDay, "ID", "Name"), new { @class = "form-control" })
+                                <div class="ValidationError">@Html.ValidationMessageFor(model => model.MonthOfDaySR.ID)</div>
+                            </div>
+                        </div>
+                    </div>*@
+
+                            <div class="clearfix"></div>
+                            <div class="form-group">
+                                <div class="pull-left LableFont">
+                                    <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Reboot Permission </label>
+                                </div>
+                                <div class="pull-left">
+                                    <div class="textBoxCompany">
+                                        @Html.DropDownListFor(model => model.RebootPermissionSR.ID, new SelectList(ViewBag.OptionTypeBag, "ID", "Name"), new { @class = "form-control" })
+                                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.RebootPermissionSR.ID)</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="form-group">
+                                <div class="pull-left LableFont">
+                                    <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Allowed Reboot Window</label>
+                                </div>
+                                <div class="pull-left">
+                                    <div class="textBox customerPmExp gapt0p">
+                                        @Html.TextBoxFor(model => model.RebootWindowStartTimeSR, new { maxlength = 50, @class = "form-control jquery_ptTimeSelect" })
+                                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.RebootWindowStartTimeSR)</div>
+                                    </div>
+                                </div>
+                                <div class="pull-left">
+                                    <div class="textBox customerPmExp gaptime">
+                                        @Html.TextBoxFor(model => model.RebootWindowEndTimeSR, new { maxlength = 50, @class = "form-control jquery_ptTimeSelect" })
+                                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.RebootWindowEndTimeSR)</div>
+                                    </div>
+                                </div>
+                                <div class="pull-left">
+                                    <div class="textBox customerPmExp">
+                                        @Html.DropDownListFor(model => model.RebootWindowTimeZoneSR.ID, new SelectList(ViewBag.TimeZones, "ID", "Name"), new { @class = "DropDownListexp form-control" })
+                                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.RebootWindowTimeZoneSR.ID)</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                        <h4 class="panel-title"><b>Network Devices</b>
+                        </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            @Html.HiddenFor(model => model.PatchingPolicyIDDND)
+                            <div class="clearfix"></div>
+                            <div class="form-group">
+                                <div class="pull-left LableFont">
+                                    <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Patching Policy Name<span class="red"> *</span></label>
+                                </div>
+                                <div class="pull-left">
+                                    <div class="textBoxCompany">@Html.TextBoxFor(model => model.PolicyNameND, new { maxlength = 50, @class = "form-control" })
+                                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.PolicyNameND)</div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="form-group">
+                                <div class="pull-left LableFont">
+                                    <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Patching Window </label>
+                                </div>
+                                <div class="pull-left">
+                                    <div class="textBox customerPmExp gapt0p">
+                                        @Html.TextBoxFor(model => model.WindowStartTimeND, new { maxlength = 50, @class = "form-control jquery_ptTimeSelect" })
+                                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.WindowStartTimeND)</div>
+                                    </div>
+                                </div>
+                                <div class="pull-left">
+                                    <div class="textBox customerPmExp gaptime">
+                                        @Html.TextBoxFor(model => model.WindowEndTimeND, new { maxlength = 50, @class = "form-control jquery_ptTimeSelect" })
+                                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.WindowEndTimeND)</div>
+                                    </div>
+                                </div>
+                                <div class="pull-left">
+                                    <div class="textBox customerPmExp">
+                                        @Html.DropDownListFor(model => model.WindowTimeZoneND.ID, new SelectList(ViewBag.TimeZones, "ID", "Name"), new { @class = "DropDownListexp form-control" })
+                                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.WindowTimeZoneND.ID)</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            @*   <div class="form-group">
+                        <div class="pull-left lablefont">
+                            <label for="inputcompnay" class="col-lg-2 control-label lablewidthexception">define patching schedule  </label>
+                        </div>
+                        <div class="pull-left">
+                            <div class="textboxcompany">
+                                @html.dropdownlistfor(model => model.definescheduletypend.id, new selectlist(viewbag.schedule, "id", "name"), new { @class = "form-control" })
+                                <div class="validationerror">@html.validationmessagefor(model => model.definescheduletypend.id)</div>
+                            </div>
+                        </div>
+                    </div>*@
+                            <div class="clearfix"></div>
+                            <div class="pull-left Largefont">
+                                <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Define Monthly Schedule</label><br />
+                                <br />
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="form-group">
+                                <div class="pull-left LableFont">
+                                    <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Select Week of the Month </label>
+                                </div>
+                                <div class="pull-left">
+                                    <div class="textBoxCompany">
+                                        @Html.DropDownListFor(model => model.WeekOfDayND.ID, new SelectList(ViewBag.WeekOfMonth, "ID", "Name"), new { @class = "form-control" })
+                                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.WeekOfDayND.ID)</div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="clearfix"></div>
+                            @*        <div class="form-group">
+                        <div class="pull-left LableFont">
+                            <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Define Month of Day (for Monthly Schedule) </label>
+                        </div>
+
+                        <div class="pull-left">
+                            <div class="textBoxCompany">
+                                @Html.DropDownListFor(model => model.MonthOfDayND.ID, new SelectList(ViewBag.MonthOfDay, "ID", "Name"), new { @class = "form-control" })
+                                <div class="ValidationError">@Html.ValidationMessageFor(model => model.MonthOfDayND.ID)</div>
+                            </div>
+                        </div>
+                    </div>*@
+
+                            <div class="clearfix"></div>
+                            <div class="form-group">
+                                <div class="pull-left LableFont">
+                                    <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Reboot Permission </label>
+                                </div>
+                                <div class="pull-left">
+                                    <div class="textBoxCompany">
+                                        @Html.DropDownListFor(model => model.RebootPermissionND.ID, new SelectList(ViewBag.OptionTypeBag, "ID", "Name"), new { @class = "form-control" })
+                                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.RebootPermissionND.ID)</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="form-group">
+                                <div class="pull-left LableFont">
+                                    <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Allowed Reboot Window</label>
+                                </div>
+                                <div class="pull-left">
+                                    <div class="textBox customerPmExp gapt0p">
+                                        @Html.TextBoxFor(model => model.RebootWindowStartTimeND, new { maxlength = 50, @class = "form-control jquery_ptTimeSelect" })
+                                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.RebootWindowStartTimeND)</div>
+                                    </div>
+                                </div>
+                                <div class="pull-left">
+                                    <div class="textBox customerPmExp gaptime">
+                                        @Html.TextBoxFor(model => model.RebootWindowEndTimeND, new { maxlength = 50, @class = "form-control jquery_ptTimeSelect" })
+                                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.RebootWindowEndTimeND)</div>
+                                    </div>
+                                </div>
+                                <div class="pull-left">
+                                    <div class="textBox customerPmExp">
+                                        @Html.DropDownListFor(model => model.RebootWindowTimeZoneND.ID, new SelectList(ViewBag.TimeZones, "ID", "Name"), new { @class = "DropDownListexp form-control" })
+                                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.RebootWindowTimeZoneND.ID)</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="panel-footer">
+                <button type="submit" class="btn btn-primary btn-sm customerSaveButton">&nbsp;&nbsp;&nbsp;SAVE&nbsp;&nbsp;&nbsp;</button>
+
+
+            </div>
+        </div>
+
+    </form>
+</div>
+

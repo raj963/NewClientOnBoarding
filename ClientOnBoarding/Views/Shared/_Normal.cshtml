@@ -1,0 +1,72 @@
+﻿@if (Request.Url.ToString().Contains("/SetupCustomer/Index") || Request.AppRelativeCurrentExecutionFilePath == "~/")
+{ 
+    <li class="active">
+        <a data-action="ajax" data-action="ajax" href="/SetupCustomer/Index">
+            <i class="fa fa-edit"></i>
+            <span>Setup Customer</span>
+        </a>
+    </li>
+}
+else
+{
+    <li class="">
+        <a data-action="ajax" data-action="ajax" href="/SetupCustomer/Index">
+            <i class="fa fa-edit"></i>
+            <span>Setup Customer</span>
+        </a>
+    </li>
+}
+@if (Request.Url.ToString().Contains("/ManageContacts/Index"))
+{
+    <li class="active">
+        <a data-action="ajax" data-action="ajax" id="manageContacts" href="/ManageContacts/Index">
+            <i class="fa fa-cogs"></i>
+            <span>Manage Contacts</span>
+        </a>
+    </li>
+}
+else
+{
+    <li class="">
+        <a data-action="ajax" data-action="ajax" id="manageContacts" href="/ManageContacts/Index">
+            <i class="fa fa-cogs"></i>
+            <span>Manage Contacts</span>
+        </a>
+    </li>
+}
+@if (Request.Url.ToString().Contains("/ManageClient/Index"))
+{
+    <li class="active">
+        <a data-action="ajax" data-action="ajax" id="manageContacts" href="/ManageClient/Index">
+            <i class="fa fa-users"></i>
+            <span>Manage Client Site</span>
+        </a>
+    </li>
+}
+else
+{
+    <li class="dropdown">
+        <a data-action="ajax" data-action="ajax" id="manageContacts" href="/ManageClient/Index">
+            <i class="fa fa-users"></i>
+            <span>Manage Client Site</span>
+        </a>
+    </li>
+}
+@if (Request.Url.ToString().Contains("/ManageClientDevices/Index"))
+{
+    <li class="active">
+        <a data-action="ajax" data-action="ajax" id="manageContacts" href="/ManageClientDevices/Index">
+            <i class="fa fa-floppy-o"></i>
+            <span>Manage Client Divices</span>
+        </a>
+    </li>
+}
+else
+{
+    <li class="">
+        <a data-action="ajax" data-action="ajax" id="manageContacts" href="/ManageClientDevices/Index">
+            <i class="fa fa-floppy-o"></i>
+            <span>Manage Client Divices</span>
+        </a>
+    </li>
+}

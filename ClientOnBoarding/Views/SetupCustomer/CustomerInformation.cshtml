@@ -1,0 +1,86 @@
+﻿@model ClientOnBoarding.Models.tblCustomerDetails
+<script src="~/Scripts/maskedinput.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        $.mask.definitions['~'] = "[+-]";
+        $("#CompPhone").mask("(999) 999-9999");
+        $("#FaxNumber").mask("(999) 999-9999");
+        $("#Zip").mask("(99999)-(9999)");
+        $("input").blur(function () {
+            $("#info").html("Unmasked value: " + $(this).mask());
+        }).dblclick(function () {
+            $(this).unmask();
+        });
+    });
+
+</script>
+<div class="pageBorder1">
+    <form class="form-horizontal customerForms" role="form" id="frmCustomer" action="/SetupCustomer/CustomerInformation" method="post">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="form-group">
+                    <div class="pull-left LableFont">
+                        <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Customer Name<span class="red"> *</span></label>
+                    </div>
+                    <div class="pull-left">
+                        <div class="textBoxCompany">@Html.TextBoxFor(model => model.CustomerName, new { maxlength = 50, @class = "form-control" })
+                            <div class="ValidationError">@Html.ValidationMessageFor(model => model.CustomerName)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-group">
+                    <div class="pull-left LableFont">
+                        <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Customer  Time Zone</label>
+                    </div>
+                    <div class="pull-left">
+                        <div class="textBoxCompany">
+
+                            @Html.DropDownListFor(model => model.TimeZone.ID, new SelectList(ViewBag.TimeZones, "ID", "Name"), new { @class = "form-control" })
+                            <div class="ValidationError">@Html.ValidationMessageFor(model => model.TimeZone.ID)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-group">
+                    <div class="pull-left LableFont">
+                        <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Customer Contact Name</label>
+                    </div>
+
+                    <div class="pull-left">
+                        <div class="textBoxCompany">@Html.TextBoxFor(model => model.CustomerContactName, new { maxlength = 50, @class = "form-control" })
+                            <div class="ValidationError">@Html.ValidationMessageFor(model => model.CustomerContactName)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+                <div class="form-group">
+                    <div class="pull-left LableFont">
+                        <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">How will NOC Communicate with End Client Site</label>
+                    </div>
+
+                    <div class="pull-left">
+                        <div class="textBoxCompany">
+                            @Html.DropDownListFor(model => model.NOCCommunication.ID, new SelectList(ViewBag.NOCCommunicationBy, "ID", "Name"), new { @class = "form-control" })
+                            <div class="ValidationError">@Html.ValidationMessageFor(model => model.NOCCommunication.ID)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+
+            </div>
+            <div class="panel-footer" @*style="margin-bottom: -15px;width: 1081px;margin-left: -15px;"*@>
+                <button type="submit" class="btn btn-primary btn-sm customerSaveButton">&nbsp;&nbsp;&nbsp;SAVE&nbsp;&nbsp;&nbsp;</button>
+            </div>
+        </div>
+
+
+    </form>
+
+</div>
+
+
+
+
+

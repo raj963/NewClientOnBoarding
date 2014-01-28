@@ -1,0 +1,93 @@
+﻿@if (Request.Url.ToString().Contains("/Search/Index"))
+{
+    <li class="active">
+        <a data-action="ajax" href="/Search/Index">
+            <i class="fa fa-search"></i>
+            <span>Search</span>
+        </a>
+    </li>
+}
+else
+{
+    <li class="">
+        <a data-action="ajax" href="/Search/Index">
+            <i class="fa fa-search"></i>
+            <span>Search</span>
+        </a>
+    </li>
+}
+
+@if (Request.Url.ToString().Contains("/ManageUser/AdminUser"))
+{
+    <li class="active">
+        <a href="/ManageUser/AdminUser">
+            <i class="fa  fa-user-md"></i>
+            <span>Manage Admin User</span>
+        </a>
+    </li>
+}
+else
+{
+    <li class="">
+        <a href="/ManageUser/AdminUser">
+            <i class="fa  fa-user-md"></i>
+            <span>Manage Admin User</span>
+        </a>
+    </li>
+}
+
+@if (Request.Url.ToString().Contains("/ManageStaff/Index"))
+{
+    <li class="active">
+        <a href="/ManageStaff/Index">
+            <i class="fa fa-users"></i>
+            <span>Manage Staff</span>
+        </a>
+    </li>
+}
+else
+{
+    <li class="">
+        <a href="/ManageStaff/Index">
+            <i class="fa fa-users"></i>
+            <span>Manage Staff</span>
+        </a>
+    </li>
+}
+
+@if (Request.Url.ToString().Contains("/ManageUser/NormalUser"))
+{
+    <li class="active">
+        <a href="/ManageUser/NormalUser">
+            <i class="fa fa-user"></i>
+            <span>Manage Normal User</span>
+        </a>
+    </li>
+}
+else
+{
+    <li class="">
+        <a href="/ManageUser/NormalUser">
+            <i class="fa fa-user"></i>
+            <span>Manage Normal User</span>
+        </a>
+    </li>
+}
+@if (Request.Url.ToString().Contains("/MyProfile/User"))
+{
+    <li class="active">
+        <a data-action="ajax" id="MyProfile" href="/MyProfile/User">
+            <i class="fa fa-th"></i>
+            <span>My Profile</span>
+        </a>
+    </li>
+}
+else
+{
+    <li class="">
+        <a data-action="ajax" id="MyProfile" href="/MyProfile/User">
+            <i class="fa fa-th"></i>
+            <span>My Profile</span>
+        </a>
+    </li>
+}

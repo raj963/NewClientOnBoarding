@@ -1,0 +1,38 @@
+﻿@model ClientOnBoarding.Models.LoginModel
+@{
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+<script src="~/Scripts/Login/Login.js" type="text/javascript"></script>
+<div class="exBox">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <p style="font-size:14px;text-align:center;">Sign in to continue Flexis ClientOnBoarding</p>
+        </div>
+        <div class="exBoxLogin">
+            @using (Html.BeginForm("JsonExternalLogin", "Account"))
+            {
+                <div class="form-group LableFont">
+                    <label for="inputUserName" class="col-lg-2 control-label LoginLableWidth">User Name</label>
+                    <div class="exTextBox">@Html.TextBoxFor(model => model.UserName, new { maxlength = 50, @class = "form-control" })
+                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.UserName)</div>
+                    </div>
+                </div>
+
+                <div class="form-group LableFont">
+                    <label for="inputPassword" class="col-lg-2 control-label LoginLableWidth">Password</label>
+                    <div class="exTextBox">@Html.TextBoxFor(model => model.Password, new { maxlength = 50, @class = "form-control", type = "Password" })
+                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.Password)</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="exSubmitbutton">
+                        <button type="submit" class="btn btn-primary">Sign in</button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+

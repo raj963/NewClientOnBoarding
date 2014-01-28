@@ -1,0 +1,128 @@
+﻿@model ClientOnBoarding.Models.tbltoolInfomation
+
+
+<div class="pageBorder1">
+    <form class="form-horizontal customerForms" role="form" id="frmCustomer" action="/SetupCustomer/ToolInformation" method="post">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="form-group">
+                    @Html.HiddenFor(model => model.ToolIDRT)
+                    <div class="pull-left LableFont">
+                        <label for="inputCompnay" class="col-lg-2 control-label LableWidth">RMM Tool Name<span class="red"> *</span></label>
+                    </div>
+
+                    <div class="pull-left">
+                        <div class="textBoxCompany">@Html.TextBoxFor(model => model.RMMTool, new { maxlength = 50, @class = "form-control" })
+                            <div class="ValidationError">@Html.ValidationMessageFor(model => model.RMMTool)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                   @Html.HiddenFor(model => model.ToolIDRT)
+                 <div class="clearfix"></div>
+                  <div class="form-group">                 
+                    <div class="pull-left LableFont">
+                        <label for="inputCompnay" class="col-lg-2 control-label LableWidth">RMM URL<span class="red"> *</span></label>
+                    </div>
+                    <div class="pull-left">
+                        <div class="textBoxCompany">@Html.TextBoxFor(model => model.RMMUrl, new { maxlength = 50, @class = "form-control" })
+                            <div class="ValidationError">@Html.ValidationMessageFor(model => model.RMMTool)</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="clearfix"></div>
+                <div class="form-group">
+                    <div class="pull-left LableFont">
+                        <label for="inputCompnay" class="col-lg-2 control-label LableWidth">RMM Tool UserID</label>
+                    </div>
+
+                    <div class="pull-left">
+                        <div class="textBoxCompany">@Html.TextBoxFor(model => model.RMMToolUserName, new { maxlength = 50, @class = "form-control" })
+                            <div class="ValidationError">@Html.ValidationMessageFor(model => model.RMMToolUserName)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-group">
+                    <div class="pull-left LableFont">
+                        <label for="inputCompnay" class="col-lg-2 control-label LableWidth">RMM Tool Password</label>
+                    </div>
+
+                    <div class="pull-left">
+                        <div class="textBoxCompany">@Html.PasswordFor(model => model.RMMToolPassword, new { maxlength = 50, @class = "form-control", @value=Model.RMMToolPassword})
+                            <div class="ValidationError">@Html.ValidationMessageFor(model => model.RMMToolPassword)</div>
+                        </div>
+                    </div>
+                    <input type="checkbox" name="agree" style="margin-left: 20px; margin-top: 10px; float: left;" id="toolInfoChkbox1">
+                    <label class="labelcheckbox" for="agree" style="font-weight: 100; font-size: 14px;">
+                        show text
+                    </label>
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-group">
+                    <div class="pull-left LableFont">
+                        <label for="inputCompnay" class="col-lg-2 control-label LableWidth">Ticketing/PSA Tool <span class="red"> *</span></label>
+                    </div>
+
+                    <div class="pull-left">
+                        <div class="textBoxCompany">@Html.TextBoxFor(model => model.PSATool, new { maxlength = 50, @class = "form-control" })
+                            <div class="ValidationError">@Html.ValidationMessageFor(model => model.PSATool)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                @Html.HiddenFor(model => model.ToolIDPT)
+                <div class="clearfix"></div>
+                <div class="clearfix"></div>
+                  <div class="form-group">
+                    @Html.HiddenFor(model => model.ToolIDRT)
+                    <div class="pull-left LableFont">
+                        <label for="inputCompnay" class="col-lg-2 control-label LableWidth">PSA URL<span class="red"> *</span></label>
+                    </div>
+
+                    <div class="pull-left">
+                        <div class="textBoxCompany">@Html.TextBoxFor(model => model.PSAUrl, new { maxlength = 50, @class = "form-control" })
+                            <div class="ValidationError">@Html.ValidationMessageFor(model => model.RMMTool)</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="clearfix"></div>
+                <div class="form-group">
+                    <div class="pull-left LableFont">
+                        <label for="inputCompnay" class="col-lg-2 control-label LableWidth">PSA Tool UserID </label>
+                    </div>
+                    <div class="pull-left">
+                        <div class="textBoxCompany">@Html.TextBoxFor(model => model.PSAToolUserName, new { maxlength = 50, @class = "form-control" })
+                            <div class="ValidationError">@Html.ValidationMessageFor(model => model.PSAToolUserName)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-group">
+                    <div class="pull-left LableFont">
+                        <label for="inputCompnay" class="col-lg-2 control-label LableWidth">PSA Tool Password </label>
+                    </div>
+                    <div class="pull-left">
+                        <div class="textBoxCompany">@Html.PasswordFor(model => model.PSAToolPassword, new { maxlength = 50, @class = "form-control",@value=Model.PSAToolPassword })
+                            <div class="ValidationError">@Html.ValidationMessageFor(model => model.PSAToolPassword)</div>
+                        </div>
+                    </div>
+                    <input type="checkbox" name="agree" style="margin-left: 20px; margin-top: 10px; float: left;" id="toolInfoChkbox2">
+                    <label class="labelcheckbox" for="agree" style="font-weight: 100; font-size: 14px;">
+                        show text
+                    </label>
+                </div>
+
+            </div>
+
+            <div class="panel-footer">
+                <button type="submit" class="btn btn-primary btn-sm customerSaveButton">&nbsp;&nbsp;&nbsp;SAVE&nbsp;&nbsp;&nbsp;</button>
+
+
+            </div>
+        </div>
+
+    </form>
+</div>

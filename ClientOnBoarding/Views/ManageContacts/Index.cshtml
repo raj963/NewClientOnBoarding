@@ -1,0 +1,26 @@
+﻿<script src="~/Scripts/ManageContacts/ManageContacts.js"></script>
+
+<div id="ContactsGrid" class="tab-pane active">
+    <div class="pageBorder">
+        <div class="form-group contactsGridform">
+            <a class="buttonhover" data-action="ajax" id="add_contact" href="/ManageContacts/Contact" data-id="0" dialog-title="Add Contact" dialog-resize="false" dialog-width="600" style="text-decoration: none; float: left">Add Contact</a>
+        </div>
+        <br />
+        <br />
+        <table id="myDataTable" class="display">
+            <thead>
+                <tr>
+                    <th>Contact Name</th>
+                    <th>Contact Type</th>
+                    <th>Notificaton Email</th>
+                    <th>Primary Phone No</th>
+                    <th>Secondary Phone No</th>
+                    <th>Notification SMS</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>

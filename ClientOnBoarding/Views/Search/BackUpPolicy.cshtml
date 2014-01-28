@@ -1,0 +1,137 @@
+﻿@model ClientOnBoarding.Models.tblBackUpPolicy
+
+<div class="form-group">
+    <div class="pull-left LableFont">
+        <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Back Up Policy Name</label>
+    </div>
+    <div class="pull-left">
+        <div class="textBoxCompany">@Html.TextBoxFor(model => model.PolicyName, new { maxlength = 50, @class = "form-control" })
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <div class="pull-left LableFont">
+        <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Back Up Product Name</label>
+    </div>
+    <div class="pull-left">
+        <div class="textBoxCompany">@Html.TextBoxFor(model => model.ProductName, new { maxlength = 50, @class = "form-control" })
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+<div class="form-group">
+    <div class="pull-left LableFont">
+        <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Volume Back Up Image Location</label>
+    </div>
+    <div class="pull-left">
+        <div class="textBoxCompany">@Html.TextBoxFor(model => model.VolumeLocation, new { maxlength = 50, @class = "form-control" })
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <div class="pull-left LableFont">
+        <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Folder Back Up Image Location</label>
+    </div>
+    <div class="pull-left">
+        <div class="textBoxCompany">@Html.TextBoxFor(model => model.FolderLocation, new { maxlength = 50, @class = "form-control" })
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+<div class="form-group">
+    <div class="pull-left LableFont">
+        <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">BackUp Schedule </label>
+    </div>
+    <div class="pull-left">
+        <div class="textBox customerPmExp gapt0p">
+            @Html.TextBoxFor(model => model.ScheduleTime, new { maxlength = 50, @class = "form-control jquery_ptTimeSelect" })
+        </div>
+    </div>
+    <div class="pull-left">
+        <div class="textBox customerPmExp">
+            @Html.TextBoxFor(model => model.ScheduleTimeZone.Name, new { @class = "DropDownListexp form-control" })
+        </div>
+    </div>
+
+
+</div>
+<div class="clearfix"></div>
+<div class="form-group">
+    <div class="pull-left LableFont">
+        <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">BackUp Set Details</label>
+    </div>
+    <div class="pull-left">
+        <div class="textBoxCompany">@Html.TextBoxFor(model => model.BackUpSetDetails, new { maxlength = 50, @class = "form-control" })
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+<div class="form-group">
+    <div class="pull-left LableFont">
+        <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Differentials Every-Days</label>
+    </div>
+    <div class="pull-left">
+        <div class="textBoxCompany">@Html.TextBoxFor(model => model.DifferentialEveryDay, new { maxlength = 50, @class = "form-control" })
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+<div class="form-group">
+    <div class="pull-left LableFont">
+        <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Number of BackUp Sets</label>
+    </div>
+    <div class="pull-left">
+        <div class="textBoxCompany">@Html.TextBoxFor(model => model.PreviousBackupSaved, new { maxlength = 50, @class = "form-control" })
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+<div class="form-group">
+    <div class="pull-left LableFont">
+        <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Full BackUp Every-Day</label>
+    </div>
+    <div class="pull-left">
+        <div class="textBoxCompany">@Html.TextBoxFor(model => model.FullBackUpEveryDay, new { maxlength = 50, @class = "form-control" })
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+<fieldset>
+    <legend>Credentials</legend>
+    <div class="form-group">
+        <div class="pull-left LableFont">
+            <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Domain Name</label>
+        </div>
+
+        <div class="pull-left">
+            <div class="textBoxCompany">@Html.TextBoxFor(model => model.DomainName, new { maxlength = 50, @class = "form-control" })
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="form-group">
+        <div class="pull-left LableFont">
+            <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">User Name</label>
+        </div>
+
+        <div class="pull-left">
+            <div class="textBoxCompany">@Html.TextBoxFor(model => model.UserName, new { maxlength = 50, @class = "form-control" })
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="form-group">
+        <div class="pull-left LableFont">
+            <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Password</label>
+        </div>
+
+        <div class="pull-left">
+            <div class="textBoxCompany">@Html.PasswordFor(model => model.Password, new { maxlength = 50, @class = "form-control" ,@value=Model.Password})
+            </div>
+        </div>
+    </div>
+    <input type="checkbox" name="agree" style="margin-left: 288px; margin-top: 10px; float: left;" id="backUpChkbox">
+    <label class="labelcheckbox" for="agree" style="font-weight: 100; font-size: 14px;">
+        show text
+    </label>
+</fieldset>

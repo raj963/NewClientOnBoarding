@@ -1,0 +1,33 @@
+﻿@model ClientOnBoarding.Models.Search
+<script src="~/Scripts/Search/Search.js"></script>
+
+<div class="pageBorder">
+    <div class="panel panel-default" style="margin-top: 20px; min-height: 100%;">
+        <div class="scrhtop">
+            <div class="srch">
+                <label>Customer Name</label>
+                <div class="tbox">
+                    @Html.TextBoxFor(model => model.Customer, new { maxlength = 50, @class = "form-control" })
+                </div>
+            </div>
+            <div class="srch">
+                <label>Client Name</label>
+                <div class="tbox">
+                    @Html.TextBoxFor(model => model.Client, new { maxlength = 50, @class = "form-control" })
+                </div>
+            </div>
+            <div class="srch">
+                <label>Device ID</label>
+                <div class="tbox">
+                    @Html.TextBoxFor(model => model.DeviceId, new { maxlength = 50, @class = "form-control" })
+                </div>
+            </div>
+            <div class="srch1">
+                <button id="search" class="btn btn-primary btn-sm customerSaveButton">&nbsp;&nbsp;&nbsp;Search&nbsp;&nbsp;&nbsp;</button>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div id="SearchDetail"></div>
+    </div>
+</div>
+

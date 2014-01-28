@@ -1,0 +1,121 @@
+﻿@model ClientOnBoarding.Models.tblMaintenancePolicy
+<div class="pageBorder1">
+    <div id="dvMPPolicy">
+        <form class="form-horizontal customerForms" role="form" id="frmCustomer" action="/SetupCustomer/MaintenancePolicy" method="post">
+            <div class="DilogBoxWidth">
+                @Html.HiddenFor(model => model.MaintenancePolicyID)
+                <div class="form-group">
+                    <div class="pull-left LableFont">
+                        <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Activity Name<span class="red"> *</span></label>
+                    </div>
+
+                    <div class="pull-left">
+                        <div class="textBoxCompany">
+                            @Html.TextBoxFor(model => model.ActivityName, new { maxlength = 50, @class = " form-control" })
+                            <div class="ValidationError">@Html.ValidationMessageFor(model => model.ActivityName)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-group">
+                    <div class="pull-left LableFont">
+                        <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Define Regular Schedule</label>
+                    </div>
+
+                    <div class="pull-left">
+                        <div class="textBoxCompany">
+                            @Html.DropDownListFor(model => model.ScheduleType.ID, new SelectList(ViewBag.ScheduleTypeM, "ID", "Name"), new { @class = "form-control" })
+                            <div class="ValidationError">@Html.ValidationMessageFor(model => model.ScheduleType.ID)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-group">
+                    <div class="pull-left LableFont">
+                        <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Define Week Day (for weekly schedule)</label>
+                    </div>
+
+                    <div class="pull-left">
+                        <div class="textBoxCompany">
+                            @Html.DropDownListFor(model => model.WeekOfDays.ID, new SelectList(ViewBag.WeekOfDay, "ID", "Name"), new { @class = "form-control" })
+                            <div class="ValidationError">@Html.ValidationMessageFor(model => model.WeekOfDays.ID)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+
+                <div class="clearfix"></div>
+                <div class="form-group">
+                    <div class="pull-left LableFont">
+                        <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Select Week of the Month </label>
+                    </div>
+                    <div class="pull-left">
+                        <div class="textBoxCompany">
+
+                            @Html.DropDownListFor(model => model.WeekOfMonth, new SelectList(ViewBag.WeekOfMonths, "ID", "Name"), new { @class = "form-control" })
+                            <div class="ValidationError">@Html.ValidationMessageFor(model => model.WeekOfMonth)</div>
+
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+                @*   <div class="form-group">
+                    <div class="pull-left LableFont">
+                        <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Define Month of Day (for Monthly Schedule) </label>
+                    </div>
+
+                    <div class="pull-left">
+                        <div class="textBoxCompany">
+
+                            @Html.DropDownListFor(model => model.MonthOfDays.ID, new SelectList(ViewBag.MonthOfDay, "ID", "Name"), new { @class = "form-control" })
+                            <div class="ValidationError">@Html.ValidationMessageFor(model => model.MonthOfDays.ID)</div>
+                        </div>
+                    </div>
+                </div>*@
+                <div class="clearfix"></div>
+                <div class="form-group">
+                    <div class="pull-left LableFont">
+                        <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Scheduled Time</label>
+                    </div>
+                    <div class="pull-left">
+                        <div class="textBox customerPmExp gapt0p ">
+                            @Html.TextBoxFor(model => model.ScheduledStartTime, new { maxlength = 50, @class = "timezoneTextbox form-control jquery_ptTimeSelect" })
+                            <div class="ValidationError">@Html.ValidationMessageFor(model => model.ScheduledStartTime)</div>
+                        </div>
+                    </div>
+                    <div class="pull-left">
+                        <div class="textBox customerPmExp gaptime ">
+                            @Html.TextBoxFor(model => model.ScheduledEndTime, new { maxlength = 50, @class = "timezoneTextbox form-control jquery_ptTimeSelect" })
+                            <div class="ValidationError">@Html.ValidationMessageFor(model => model.ScheduledEndTime)</div>
+                        </div>
+                    </div>
+                    <div class="pull-left">
+                        <div class="textBox customerPmExp">
+                            @Html.DropDownListFor(model => model.TimeZone.ID, new SelectList(ViewBag.TimeZones, "ID", "Name"), new { @class = "DropDownListexp form-control" })
+                            <div class="ValidationError">@Html.ValidationMessageFor(model => model.TimeZone.ID)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-group">
+                    <div class="pull-left LableFont">
+                        <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Start Date</label>
+                    </div>
+                    <div class="pull-left">
+                        @*<div class="textBoxCompany">@Html.TextBoxFor(model => model.ScheduledStartDate, new { maxlength = 50, @class = " form-control" })*@
+                        <div class="textBoxCompany">@Html.TextBoxFor(model => model.ScheduledStartDate, new { maxlength = 50, @class = "form-control jquery_datepicker", @Value = Model.ScheduledStartDate.ToString("MM/dd/yyyy") })
+                            <div class="ValidationError">@Html.ValidationMessageFor(model => model.ScheduledStartDate)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="panel-footer" style="width: 633px; margin-left: -14px; margin-top: 25px;">
+                    <button type="submit" class="btn btn-primary btn-sm customerSaveButton">&nbsp;&nbsp;&nbsp;SAVE&nbsp;&nbsp;&nbsp;</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

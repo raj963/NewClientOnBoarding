@@ -1,0 +1,36 @@
+﻿@if (Request.Url.ToString().Contains("/Search/Index"))
+{
+    <li class="active">
+        <a data-action="ajax" href="/Search/Index">
+            <i class="fa fa-search"></i>
+            <span>Search</span>
+        </a>
+    </li>
+}
+else
+{
+    <li class="">
+        <a data-action="ajax" href="/Search/Index">
+            <i class="fa fa-search"></i>
+            <span>Search</span>
+        </a>
+    </li>
+}
+@if (Request.Url.ToString().Contains("/MyProfile/User"))
+{
+    <li class="active">
+        <a data-action="ajax" id="" href="/MyProfile/User">
+            <i class="fa fa-th"></i>
+            <span>My Profile</span>
+        </a>
+    </li>
+}
+else
+{
+    <li class="">
+        <a data-action="ajax" id="" href="/MyProfile/User">
+            <i class="fa fa-th"></i>
+            <span>My Profile</span>
+        </a>
+    </li>
+}

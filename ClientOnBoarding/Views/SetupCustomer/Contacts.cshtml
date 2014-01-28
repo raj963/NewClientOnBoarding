@@ -1,0 +1,232 @@
+﻿@model ClientOnBoarding.Models.Contacts
+<script src="~/Scripts/maskedinput.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        $.mask.definitions['~'] = "[+-]";
+        $("#PhoneNumber").mask("(999) 999-9999");
+        $("#FaxNumber").mask("(999) 999-9999");
+        $("#PostalCode").mask("(99999)-(9999)");
+        $("input").blur(function () {
+            $("#info").html("Unmasked value: " + $(this).mask());
+        }).dblclick(function () {
+            $(this).unmask();
+        });
+    });
+
+</script>
+<div id="Contacts" class="tab-pane active">
+    <div class="pageBorderDialog">
+
+        <form class="form-horizontal" role="form" id="frmContacts" action="/CompanyVendor/Contacts" method="post">
+            @Html.HiddenFor(model => model.CustomerID, new { maxlength = 50, @class = "form-control" })
+            @Html.HiddenFor(model => model.ContactID, new { maxlength = 50, @class = "form-control" })
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="form-group">
+
+                        <div class="pull-left LableFont">
+                            <label for="inputDefaultProjectManager" class="col-lg-1 control-label ContactsLableWidth">Last Name</label>
+                        </div>
+                        <div class="pull-left">
+                            <div class="ContactsTextBox">@Html.TextBoxFor(model => model.ContactLastName, new { maxlength = 50, @class = "form-control" })
+                                <div class="ValidationError">@Html.ValidationMessageFor(model => model.ContactLastName)</div>
+                            </div>
+                        </div>
+                        <div class="pull-left LableFont">
+                            <label for="inputCustomerProspect" class="col-lg-1 control-label ContactsLableWidthRight">First Name</label>
+                        </div>
+                        <div class="pull-left">
+                            <div class="ContactsTextBox">@Html.TextBoxFor(model => model.ContactFirstName, new { maxlength = 30, @class = "form-control" })
+                                <div class="ValidationError">@Html.ValidationMessageFor(model => model.ContactFirstName)</div>
+                            </div>
+                        </div>
+
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="form-group">
+
+                        <div class="pull-left LableFont">
+                            <label for="inputBusinessType" class="col-lg-1 control-label ContactsLableWidth">Title</label>
+                        </div>
+                        <div class="pull-left">
+                            <div class="ContactsTextBox">@Html.TextBoxFor(model => model.ContactTitle, new { maxlength = 50, @class = "form-control" })
+                                <div class="ValidationError">@Html.ValidationMessageFor(model => model.ContactTitle)</div>
+                            </div>
+                        </div>
+                        <div class="pull-left LableFont">
+                            <label for="inputSize" class="col-lg-1 control-label ContactsLableWidthRight">Department</label>
+                        </div>
+                        <div class="pull-left">
+                            <div class="ContactsTextBox">@Html.TextBoxFor(model => model.CompanyOrDepartment, new { maxlength = 50, @class = "form-control" })
+                                <div class="ValidationError">@Html.ValidationMessageFor(model => model.CompanyOrDepartment)</div>
+                            </div>
+                        </div>
+
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="pull-left LableFont">
+                            <label for="inputCustomerType" class="col-lg-1 control-label ContactsLableWidth">Type</label>
+                        </div>
+                        <div class="pull-left">
+                            <div class="ContactsTextBox">
+                                @Html.DropDownListFor(model => model.ContactTyp.ID, new SelectList(ViewBag.vbContactType, "ID", "Name"), new { @class = "required DropDownListContacts  form-control" })
+                            </div>
+                        </div>
+                        <div class="pull-left LableFont">
+                            <label for="inputCustomerType" class="col-lg-1 control-label ContactsLableWidthRight"></label>
+                        </div>
+                        <div class="pull-left">
+                            <div class="ContactsTextBox">@Html.TextBoxFor(model => model.ContactTyp.Name, new { @Value = Model.ContactTyp == null ? "PR" : Model.ContactTyp.ID, maxlength = 50, disabled = true, @class = "form-control" })
+                                <div class="ValidationError">@Html.ValidationMessageFor(model => model.ContactTyp.Name)</div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="contactsTwoBtn">
+                        <div class="checkboxFormate LableFont contactsBtns">
+                            <div class="pull-left contactsCompnayAdd">
+                                <button type="button" class="btn btn-primary btn-xs" id="use_company_address"  data-url="@Url.Action("UseAddress", "CompanyVendor")" >Use Company Address</button>
+                            </div>
+                            <div class="pull-right contactsLastAdd">
+                                <button type="button" class="btn btn-primary btn-xs" id="use_last_contact_address"  data-url="@Url.Action("UseAddress", "CompanyVendor")">Use Last Contact Address</button>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group contactAddress">
+                        <div class="pull-left LableFont">
+                            <label for="inputNote" class="col-lg-1 control-label ContactsLableWidth">Address</label>
+                        </div>
+                        <div class="pull-left">
+                            <div class="ContactsTextBox">@Html.TextBoxFor(model => model.ContAddress, new { maxlength = 100, @class = "form-control" })
+                                <div class="ValidationError">@Html.ValidationMessageFor(model => model.ContAddress)</div>
+                            </div>
+                        </div>
+                        <div class="pull-left LableFont">
+                            <label for="inputCompnay" class="col-lg-1 control-label ContactsLableWidthRight">City</label>
+                        </div>
+                        <div class="pull-left">
+                            <div class="ContactsTextBox">@Html.TextBoxFor(model => model.City, new { maxlength = 20, @class = "form-control" })
+                                <div class="ValidationError">@Html.ValidationMessageFor(model => model.City)</div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="pull-left LableFont">
+                            <label for="inputSt" class="col-lg-1 control-label ContactsLableWidth">State</label>
+                        </div>
+                        <div class="pull-left">
+                            <div class="ContactsTextBox">@Html.TextBoxFor(model => model.State, new { maxlength = 2, @class = "form-control" })
+                                <div class="ValidationError">@Html.ValidationMessageFor(model => model.State)</div>
+                            </div>
+                        </div>
+                        <div class="pull-left LableFont">
+                            <label for="inputZip" class="col-lg-1 control-label ContactsLableWidthRight">Zip</label>
+                        </div>
+                        <div class="pull-left">
+                            <div class="ContactsTextBox">@Html.TextBoxFor(model => model.PostalCode, new { maxlength = 20, @class = "form-control" })
+                                <div class="ValidationError">@Html.ValidationMessageFor(model => model.PostalCode)</div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="pull-left LableFont">
+                            <label for="inputPhone" class="col-lg-1 control-label ContactsLableWidth">Phone</label>
+                        </div>
+                        <div class="pull-left">
+                            <div class="ContactsTextBox">@Html.TextBoxFor(model => model.PhoneNumber, new { maxlength = 20, @class = "form-control" })
+                                <div class="ValidationError">@Html.ValidationMessageFor(model => model.PhoneNumber)</div>
+                            </div>
+                        </div>
+                        <div class="pull-left LableFont">
+                            <label for="inputPhone" class="col-lg-1 control-label ContactsLableWidthRight">Ext</label>
+                        </div>
+                        <div class="pull-left">
+                            <div class="ContactsTextBox">@Html.TextBoxFor(model => model.Extension, new { maxlength = 10, @class = "form-control" })
+                                <div class="ValidationError">@Html.ValidationMessageFor(model => model.Extension)</div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="pull-left LableFont">
+                            <label for="inputFax" class="col-lg-1 control-label ContactsLableWidth">Fax</label>
+                        </div>
+                        <div class="pull-left">
+                            <div class="ContactsTextBox">@Html.TextBoxFor(model => model.FaxNumber, new { maxlength = 20, @class = "form-control" })
+                                <div class="ValidationError">@Html.ValidationMessageFor(model => model.FaxNumber)</div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="pull-left LableFont">
+                            <label for="inputPhone" class="col-lg-1 control-label ContactsLableWidth">Email Address</label>
+                        </div>
+                        <div class="pull-left">
+                            <div class="ContactsTextBox">@Html.TextBoxFor(model => model.EmailAddress, new { maxlength = 100, @class = "form-control" })
+                                <div class="ValidationError">@Html.ValidationMessageFor(model => model.ConType)</div>
+                            </div>
+                        </div>
+
+                        <div class="pull-left LableFont">
+                            <div class=" ContactCheckbox">
+                                <div class="well well-sm contactInActive">
+                                    <label>
+                                        @Html.CheckBoxFor(model => model.Inactive)
+                                        In Active
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="pull-left LableFont">
+                            <label for="inputWebUrl" class="col-lg-1 control-label ContactsLableWidth">Comment</label>
+                        </div>
+                        <div class="pull-left">
+                            <div class="ContactsTextBox">@Html.TextAreaFor(model => model.Comment, new { maxlength = 2000, @class = "form-control1" })
+                                <div class="ValidationError">@Html.ValidationMessageFor(model => model.Comment)</div>
+                            </div>
+                        </div>
+                        <div class="pull-left LableFont">
+                            <div class=" ContactCheckbox">
+                                <label>
+                                    @Html.CheckBoxFor(model => model.XmasCard)
+                                    Xmas Card
+                                </label>
+                                <br />
+                                <label>
+                                    @Html.CheckBoxFor(model => model.Mailmearge)
+                                    Mail Mearge
+                                </label>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <button type="submit" class="btn btn-primary btn-sm contactSaveBtn">&nbsp;&nbsp;&nbsp;SAVE&nbsp;&nbsp;&nbsp;</button>
+                    @if (Model.ContactID > 0 && !string.IsNullOrEmpty(Model.ContactFirstName))
+                    {
+                        <button type="submit" class="btn btn-primary btn-sm contactDeletebtn" id="delete_contact" data-id="@Model.ContactID" data-url="@Url.Action("DeleteContact", "CompanyVendor")">&nbsp;&nbsp;&nbsp;DELETE&nbsp;&nbsp;&nbsp;</button>                            
+                    }
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

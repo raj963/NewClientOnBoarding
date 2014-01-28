@@ -1,0 +1,74 @@
+﻿@model ClientOnBoarding.Models.Customer
+
+<div class="panel panel-primary">
+    @if (Model.CustomerID > 0 && !string.IsNullOrEmpty(Model.CustomerName))
+    {
+        if (Model.Inactive)
+        {
+            if (Model.CustomerProspect.ID != null && Model.CustomerProspect.ID == "P")
+            {
+        <div class="panel-heading">@Model.CustomerName  - <b style="color: yellow">INACTIVE PROSPECT </b></div>
+            }
+            else
+            {
+        <div class="panel-heading">@Model.CustomerName  - <b style="color: yellow">INACTIVE CUSTOMER </b></div>
+            }
+        }
+        else
+        {
+            if (Model.CustomerProspect.ID != null && Model.CustomerProspect.ID == "P")
+            {
+        <div class="panel-heading">@Model.CustomerName  - <b style="color: greenyellow">ACTIVE PROSPECT </b></div>
+            }
+            else
+            {
+        <div class="panel-heading">@Model.CustomerName  - <b style="color: greenyellow">ACTIVE CUSTOMER </b></div>
+            }
+        }
+    }
+    else
+    {
+        <div class="panel-heading">Setup New Customer</div>
+    }
+    <div class="panel-body">
+        <div class="tabbable">
+            <ul class="nav nav-tabs">
+                @Html.HiddenFor(model => model.CustomerID, new { maxlength = 50, @class = "form-control" })
+
+                
+                    <li class="active"><a href="#BasicDetail" data-link="/SetupCustomer/CustomerInformation" data-id="@Model.CustomerID" data-toggle="tab">Customer Information</a></li>
+                    <li><a href="#BillingAddress" data-link="/SetupCustomer/BillingAddress" data-id="@Model.CustomerID" data-toggle="tab">Tool Information</a></li>
+                    <li><a href="#ContactsGrid" data-link="/SetupCustomer/ContactsGrid" data-id="@Model.CustomerID" data-toggle="tab">AccessPolicy</a></li>
+                 <li><a href="#ContactsGrid" data-link="/SetupCustomer/ContactsGrid" data-id="@Model.CustomerID" data-toggle="tab">Maintenance Policy </a></li>
+                 <li><a href="#ContactsGrid" data-link="/SetupCustomer/PatchingPolicy" data-id="@Model.CustomerID" data-toggle="tab">Patching Policy</a></li>
+                 <li><a href="#ContactsGrid" data-link="/SetupCustomer/ContactsGrid" data-id="@Model.CustomerID" data-toggle="tab">Anit-Virus Policy</a></li>
+                 <li><a href="#ContactsGrid" data-link="/SetupCustomer/ContactsGrid" data-id="@Model.CustomerID" data-toggle="tab">AccessPolicy</a></li>
+               
+            </ul>
+            <div class="tab-content" id="customerDetail">
+                @if (ViewBag.RenderURL != null && ViewBag.RenderURL == "BillingAddress")
+                {
+                    BillingAddress billingAddress = new BillingAddress();
+                    billingAddress.CustomerID = Model.CustomerID;
+                    billingAddress.CompanyAddress = Model.BillingAddress.CompanyAddress;
+                    billingAddress.City = Model.BillingAddress.City;
+                    billingAddress.State = Model.BillingAddress.State;
+                    billingAddress.Zip = Model.BillingAddress.Zip;
+                    
+                    @Html.Partial("BillingAddress", billingAddress);
+                }
+                else if (ViewBag.RenderURL != null && ViewBag.RenderURL == "ContactsGrid")
+                {
+                    Contacts contacts = new Contacts();
+                    contacts.CustomerID = Model.CustomerID;
+                    @Html.Partial("ContactsGrid", contacts);
+                }
+                else
+                {
+                    @Html.Partial("Customer", Model);
+                }
+            </div>
+        </div>
+    </div>
+</div>
+

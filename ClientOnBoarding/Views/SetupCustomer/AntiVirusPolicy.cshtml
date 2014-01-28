@@ -1,0 +1,134 @@
+﻿@*@model ClientOnBoarding.Models.tblAntiVirusPolicy
+<div id="dvAVPolicy">
+    <form class="form-horizontal customerForms" role="form" id="frmCustomer" action="/SetupCustomer/AntiVirusPolicy" method="post">
+        <div class="DilogBoxWidth">
+            @Html.HiddenFor(model => model.AntiVirusID)
+            <div class="form-group">
+                <div class="pull-left LableFont">
+                    <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Anti-Virus Policy Name</label>
+                </div>
+                <div class="pull-left">
+                    <div class="textBoxCompany">@Html.TextBoxFor(model => model.PolicyName, new { maxlength = 50, @class = "form-control" })
+                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.PolicyName)</div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="form-group">
+                <div class="pull-left LableFont">
+                    <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Av Product Name</label>
+                </div>
+                <div class="pull-left">
+                    <div class="textBoxCompany">@Html.TextBoxFor(model => model.ProductName, new { maxlength = 50, @class = "form-control" })
+                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.ProductName)</div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="clearfix"></div>
+            <div class="form-group">
+                <div class="pull-left LableFont">
+                    <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Patching Time </label>
+                </div>
+
+                <div class="pull-left">
+                    <div class="textBox customerPmExp gapt0p">
+                        @Html.TextBoxFor(model => model.PatchingTime, new { maxlength = 50, @class = "timezoneTextbox form-control jquery_ptTimeSelect" })
+                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.PatchingTime)</div>
+                    </div>
+                </div>
+
+                <div class="pull-left">
+                    <div class="textBox customerPmExp ">
+                        @Html.DropDownListFor(model => model.PatchingTimeZone.ID, new SelectList(ViewBag.TimeZones, "ID", "Name"), new { @class = "DropDownListexp form-control" })
+                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.PatchingTimeZone.ID)</div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="clearfix"></div>
+            <div class="form-group">
+                <div class="pull-left LableFont">
+                    <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Define Week Day (for weekly schedule)</label>
+                </div>
+                <div class="pull-left">
+
+                    <div class="textBoxCompany">
+                        @Html.DropDownListFor(model => model.WeekOfDay.ID, new SelectList(ViewBag.WeekOfDayAV, "ID", "Name"), new { @class = "form-control" })
+                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.WeekOfDay.ID)</div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="form-group">
+                <div class="pull-left LableFont">
+                    <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Define Month of Day (for Monthly Schedule) </label>
+                </div>
+
+                <div class="pull-left">
+                    <div class="textBoxCompany">
+                        @Html.DropDownListFor(model => model.MonthOfDay.ID, new SelectList(ViewBag.MonthOfDayAV, "ID", "Name"), new { @class = "form-control" })
+                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.MonthOfDay.ID)</div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="form-group">
+                <div class="pull-left LableFont">
+                    <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Anti-Virus Scan Exclusion</label>
+                </div>
+                <div class="pull-left">
+                    <div class="textBoxCompany">@Html.TextBoxFor(model => model.PolicyName, new { maxlength = 50, @class = "form-control" })
+                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.PolicyName)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+            <fieldset>
+                <legend>AV Scan Exclusion</legend>
+                <div class="form-group">
+                    <div class="pull-left LableFont">
+                        <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Exclude files with an extension</label>
+                    </div>
+
+                    <div class="pull-left">
+                        <div class="textBoxCompany">@Html.TextBoxFor(model => model.ExcludedFilesExtension, new { maxlength = 50, @class = "form-control" })
+                            <div class="ValidationError">@Html.ValidationMessageFor(model => model.ExcludedFilesExtension)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-group">
+                    <div class="pull-left LableFont">
+                        <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Exclude File Types</label>
+                    </div>
+
+                    <div class="pull-left">
+                        <div class="textBoxCompany">@Html.TextBoxFor(model => model.ExcludedFileTypes, new { maxlength = 50, @class = "form-control" })
+                            <div class="ValidationError">@Html.ValidationMessageFor(model => model.ExcludedFileTypes)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-group">
+                    <div class="pull-left LableFont">
+                        <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Exclude File Paths</label>
+                    </div>
+                    <div class="pull-left">
+                        <div class="textBoxCompany">@Html.TextBoxFor(model => model.ExcludedFilePaths, new { maxlength = 50, @class = "form-control" })
+                            <div class="ValidationError">@Html.ValidationMessageFor(model => model.ExcludedFilePaths)</div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <div class="panel-footer" style="width: 633px; margin-left: -14px;margin-top:20px;">
+                <button type="submit" class="btn btn-primary btn-sm customerSaveButton">&nbsp;&nbsp;&nbsp;SAVE&nbsp;&nbsp;&nbsp;</button>
+            </div>
+        </div>
+    </form>
+</div>
+*@

@@ -1,0 +1,103 @@
+﻿@model ClientOnBoarding.Models.tblCustomerDetails
+<script src="~/Scripts/MyProfile/MyProfile.js"></script>
+
+<form class="form-horizontal customerForms" role="form" id="frmuser" action="/MyProfile/User" method="post">
+    <div class="pageBorderMyProfile">
+        @Html.HiddenFor(model => model.CustomerID)
+        @Html.HiddenFor(model => model.RoleID)
+        @Html.HiddenFor(model => model.EmailAddress)
+
+
+         <div class="panel panel-primary">
+            <div class="panel-heading">Update Profile</div>
+        <div class="form-group"style="padding-top:10px;">
+            <div class="pull-left LableFont">
+                @if (Model.RoleID == UserRole.Staff)
+                {  <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Staff Name</label>}
+                
+                else
+                {  <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Customer Name</label>}
+            </div>
+            <div class="pull-left">
+                <div class="textBoxCompany">@Html.TextBoxFor(model => model.CustomerName, new { maxlength = 50, @class = "form-control" })
+                    <div class="ValidationError">@Html.ValidationMessageFor(model => model.CustomerName)</div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="form-group">
+            <div class="pull-left LableFont">
+                <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Email Address</label>
+            </div>
+            <div class="pull-left">
+                <div class="textBoxCompany">
+                    @Html.DisplayFor(model => model.EmailAddress, new { @class = "form-control" })
+                    <div class="ValidationError">@Html.ValidationMessageFor(model => model.EmailAddress)</div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="form-group">
+            <div class="pull-left LableFont">
+                <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Password</label>
+            </div>
+            <div class="pull-left">
+                <div class="textBoxCompany">
+                    @Html.PasswordFor(model => model.Password, new { maxlength = 50, @class = "form-control", @value = Model.Password })
+                    <div class="ValidationError">@Html.ValidationMessageFor(model => model.Password)</div>
+                </div>
+            </div>
+            <div class="pull-left" style="padding-left: 30px; padding-top: 5px;">
+                <input type="checkbox" name="agree" id="userPasswordChkbox">
+            </div>
+            <div class="pull-left" style="padding-left: 5px; padding-bottom: 5px;">
+                <label class="labelcheckbox" for="agree" style="font-weight: 100; font-size: 14px;">show text</label>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+         <div class="clearfix"></div>
+        @if (Model.RoleID != UserRole.Staff)
+        {
+            <div class="form-group">
+                <div class="pull-left LableFont">
+                    <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Customer  Time Zone</label>
+                </div>
+                <div class="pull-left">
+                    <div class="textBoxCompany">
+                        @Html.DropDownListFor(model => model.TimeZone.ID, new SelectList(ViewBag.TimeZones, "ID", "Name"), new { @class = "form-control" })
+                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.TimeZone.ID)</div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="form-group">
+                <div class="pull-left LableFont">
+                    <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Customer Contact Name</label>
+                </div>
+                <div class="pull-left">
+                    <div class="textBoxCompany">@Html.TextBoxFor(model => model.CustomerContactName, new { maxlength = 50, @class = "form-control" })
+                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.CustomerContactName)</div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="form-group">
+                <div class="pull-left LableFont">
+                    <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">How will NOC Communicate with End Client Site</label>
+                </div>
+                <div class="pull-left">
+                    <div class="textBoxCompany">
+                        @Html.DropDownListFor(model => model.NOCCommunication.ID, new SelectList(ViewBag.NOCCommunicationBy, "ID", "Name"), new { @class = "form-control" })
+                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.NOCCommunication.ID)</div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        }
+         <div class="clearfix"></div>
+        <Br><br />
+        <div class="panel-footer" style="width: 100%;">
+            <button type="submit" class="btn btn-primary btn-sm customerSaveButton" id="Sbmt">&nbsp;&nbsp;&nbsp;SAVE&nbsp;&nbsp;&nbsp;</button>
+        </div></div>
+    </div>
+</form>

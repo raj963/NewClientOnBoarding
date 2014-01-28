@@ -1,0 +1,225 @@
+﻿@model ClientOnBoarding.Models.tblAccessPolicy
+
+@*<div class="panel panel-default">
+    <div class="panel-body">*@
+        @if (Model.AccessPolicyIDWR > 0)
+        {
+            <fieldset>
+                <legend>Workstation</legend>
+                <div class="form-group">
+                    <div class="pull-left LableFont">
+                        <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Remote control permission allowed?</label>
+                    </div>
+                    <div class="pull-left">
+                        <div class="textBoxCompany ">
+                            @Html.TextBoxFor(model => model.RemoteControlPermissionWR.Name, new { @disabled = "disabled",  @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-group">
+                    <div class="pull-left LableFont">
+                        <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Allowed Remote Access Start Time</label>
+                    </div>
+                    <div class="pull-left">
+                        <div class="textBox customerPmExp gapt0p">@Html.TextBoxFor(model => model.RemoteAccessStartTimeWR, new { @disabled = "disabled",  @class = "form-control jquery_ptTimeSelect" })
+                        </div>
+                    </div>
+
+                    <div class="pull-left">
+                        <div class="textBox customerPmExp gaptime">
+                            @Html.TextBoxFor(model => model.RemoteAccessEndTimeWR, new { @disabled = "disabled",  @class = "form-control jquery_ptTimeSelect" })
+                        </div>
+                    </div>
+                    <div class="pull-left">
+                        <div class="textBox customerPmExp">
+                            @Html.TextBoxFor(model => model.RemoteAccessTimeZoneWR.Name, new { @disabled = "disabled",  @class = "DropDownListexp form-control " })
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-group">
+                    <div class="pull-left LableFont">
+                        <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Reboot Permission</label>
+                    </div>
+
+                    <div class="pull-left">
+                        <div class="textBoxCompany">
+                            @Html.TextBoxFor(model => model.RebootPermissionWR.Name, new { @disabled = "disabled",  @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-group">
+                    <div class="pull-left LableFont">
+                        <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Allowed Reboot Window</label>
+                    </div>
+                    <div class="pull-left">
+                        <div class="textBox customerPmExp gapt0p">
+                            @Html.TextBoxFor(model => model.RebootWindowStartTimeWR, new { @disabled = "disabled",  @class = "form-control jquery_ptTimeSelect" })
+                        </div>
+                    </div>
+                    <div class="pull-left">
+                        <div class="textBox customerPmExp gaptime">
+                            @Html.TextBoxFor(model => model.RebootWindowEndTimeWR, new { @disabled = "disabled",  @class = "form-control jquery_ptTimeSelect" })
+                        </div>
+                    </div>
+                    <div class="pull-left">
+                        <div class="textBox customerPmExp">
+                            @Html.TextBoxFor(model => model.RebootTimeZoneWR.Name, new { @disabled = "disabled",  @class = "DropDownListexp form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+
+            </fieldset>
+        }
+
+        @if (Model.AccessPolicyIDSR > 0)
+        {
+            <fieldset>
+                <legend>Servers</legend>
+                <div class="form-group">
+                    <div class="pull-left LableFont">
+                        <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Remote control permission allowed?</label>
+                    </div>
+
+                    <div class="pull-left">
+                        <div class="textBoxCompany">
+                            @Html.TextBoxFor(model => model.RemoteControlPermissionSR.Name, new { @disabled = "disabled",  @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-group">
+                    <div class="pull-left LableFont">
+                        <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Allowed Remote Access Start Time</label>
+                    </div>
+                    <div class="pull-left">
+                        <div class="textBox customerPmExp gapt0p">
+                            @Html.TextBoxFor(model => model.RemoteAccessStartTimeSR, new { @disabled = "disabled",  @class = "form-control jquery_ptTimeSelect" })
+                        </div>
+                    </div>
+                    <div class="pull-left">
+                        <div class="textBox customerPmExp gaptime">
+                            @Html.TextBoxFor(model => model.RemoteAccessEndTimeSR, new { @disabled = "disabled",  @class = "form-control jquery_ptTimeSelect" })
+                        </div>
+                    </div>
+                    <div class="pull-left">
+                        <div class="textBox customerPmExp">
+                            @Html.TextBoxFor(model => model.RemoteAccessTimeZoneSR.Name, new { @disabled = "disabled",  @class = "DropDownListexp form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-group">
+                    <div class="pull-left LableFont">
+                        <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Reboot Permission</label>
+                    </div>
+
+                    <div class="pull-left">
+                        <div class="textBoxCompany">
+                            @Html.TextBoxFor(model => model.RebootPermissionSR.Name, new { @disabled = "disabled",  @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-group">
+                    <div class="pull-left LableFont">
+                        <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Allowed Reboot Window</label>
+                    </div>
+                    <div class="pull-left">
+                        <div class="textBox customerPmExp gapt0p">
+                            @Html.TextBoxFor(model => model.RebootWindowStartTimeSR, new { @disabled = "disabled",  @class = "form-control jquery_ptTimeSelect" })
+                        </div>
+                    </div>
+                    <div class="pull-left">
+                        <div class="textBox customerPmExp gaptime">
+                            @Html.TextBoxFor(model => model.RebootWindowEndTimeSR, new { @disabled = "disabled",  @class = "form-control jquery_ptTimeSelect" })
+                        </div>
+                    </div>
+                    <div class="pull-left">
+                        <div class="textBox customerPmExp">
+                            @Html.TextBoxFor(model => model.RebootTimeZoneSR.Name, new { @disabled = "disabled",  @class = "DropDownListexp form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </fieldset>
+        }
+
+        @if (Model.AccessPolicyIDND > 0)
+        {
+            <fieldset>
+                <legend>Network Devices</legend>
+                <div class="form-group">
+                    <div class="pull-left LableFont">
+                        <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Remote control permission allowed?</label>
+                    </div>
+
+                    <div class="pull-left">
+                        <div class="textBoxCompany">
+                            @Html.TextBoxFor(model => model.RemoteControlPermissionND.Name, new { @disabled = "disabled", @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-group">
+                    <div class="pull-left LableFont">
+                        <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Allowed Remote Access Start Time</label>
+                    </div>
+                    <div class="pull-left"> 
+                        <div class="textBox customerPmExp gapt0p">
+                            @Html.TextBoxFor(model => model.RemoteAccessStartTimeND, new { @disabled = "disabled", @class = "form-control jquery_ptTimeSelect" })
+                        </div>
+                    </div>
+                    <div class="pull-left">
+                        <div class="textBox customerPmExp gaptime">
+                            @Html.TextBoxFor(model => model.RemoteAccessEndTimeND, new { @disabled = "disabled", @class = "form-control jquery_ptTimeSelect" })
+                        </div>
+                    </div>
+                    <div class="pull-left">
+                        <div class="textBox customerPmExp">
+                            @Html.TextBoxFor(model => model.RemoteAccessTimeZoneND.Name, new { @disabled = "disabled", @class = "DropDownListexp form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-group">
+                    <div class="pull-left LableFont">
+                        <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Reboot Permission</label>
+                    </div>
+
+                    <div class="pull-left">
+                        <div class="textBoxCompany">
+                            @Html.TextBoxFor(model => model.RebootPermissionND.Name, new { @disabled = "disabled", @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-group">
+                    <div class="pull-left LableFont">
+                        <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Allowed Reboot Window</label>
+                    </div>
+                    <div class="pull-left">
+                        <div class="textBox customerPmExp gapt0p">
+                            @Html.TextBoxFor(model => model.RebootWindowStartTimeND, new { @disabled = "disabled", @class = "form-control jquery_ptTimeSelect" })
+                        </div>
+                    </div>
+                    <div class="pull-left">
+                        <div class="textBox customerPmExp gaptime">
+                            @Html.TextBoxFor(model => model.RebootWindowEndTimeND, new { @disabled = "disabled", @class = "form-control jquery_ptTimeSelect" })
+                        </div>
+                    </div>
+                    <div class="pull-left">
+                        <div class="textBox customerPmExp">
+                            @Html.TextBoxFor(model => model.RebootTimeZoneND.Name, new { @disabled = "disabled",  id = "RebootTimeZoneND", @class = "DropDownListexp form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </fieldset>
+        }
+    @*</div>
+</div>*@
+

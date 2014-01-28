@@ -1,0 +1,114 @@
+﻿@model ClientOnBoarding.Models.tblAntiVirusPolicy
+
+<div class="form-group">
+    <div class="pull-left LableFont">
+        <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Anti-Virus Policy Name</label>
+    </div>
+    <div class="pull-left">
+        <div class="textBoxCompany">@Html.TextBoxFor(model => model.PolicyName, new { maxlength = 50, @class = "form-control" })
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+<div class="form-group">
+    <div class="pull-left LableFont">
+        <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Av Product Name</label>
+    </div>
+    <div class="pull-left">
+        <div class="textBoxCompany">@Html.TextBoxFor(model => model.ProductName, new { maxlength = 50, @class = "form-control" })
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+
+<div class="clearfix"></div>
+<div class="form-group">
+    <div class="pull-left LableFont">
+        <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Patching Time </label>
+    </div>
+
+    <div class="pull-left">
+        <div class="textBox customerPmExp gapt0p">
+            @Html.TextBoxFor(model => model.PatchingTime, new { maxlength = 50, @class = "form-control jquery_ptTimeSelect" })
+        </div>
+    </div>
+
+    <div class="pull-left">
+        <div class="textBox customerPmExp ">
+            @Html.TextBoxFor(model => model.PatchingTimeZone.ID, new { @class = "DropDownListexp form-control" })
+        </div>
+    </div>
+
+</div>
+<div class="clearfix"></div>
+
+<div class="clearfix"></div>
+<div class="form-group">
+    <div class="pull-left LableFont">
+        <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Define Week Day (for weekly schedule)</label>
+    </div>
+    <div class="pull-left">
+
+        <div class="textBoxCompany">
+            @Html.TextBoxFor(model => model.WeekOfDay.Name, new { @class = "form-control" })
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+<div class="form-group">
+    <div class="pull-left LableFont">
+        <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Define Month of Day (for Monthly Schedule) </label>
+    </div>
+
+    <div class="pull-left">
+        <div class="textBoxCompany">
+            @Html.TextBoxFor(model => model.MonthOfDay.Name, new { @class = "form-control" })
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+<div class="form-group">
+    <div class="pull-left LableFont">
+        <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Anti-Virus Scan Exclusion</label>
+    </div>
+    <div class="pull-left">
+        <div class="textBoxCompany">@Html.TextBoxFor(model => model.PolicyName, new { maxlength = 50, @class = "form-control" })
+        </div>
+    </div>
+</div>
+
+<div class="clearfix"></div>
+<fieldset>
+    <legend>AV Scan Exclusion</legend>
+    <div class="form-group">
+        <div class="pull-left LableFont">
+            <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Exclude files with an extension</label>
+        </div>
+
+        <div class="pull-left">
+            <div class="textBoxCompany">@Html.TextBoxFor(model => model.ExcludedFilesExtension, new { maxlength = 50, @class = "form-control" })
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="form-group">
+        <div class="pull-left LableFont">
+            <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Exclude File Types</label>
+        </div>
+
+        <div class="pull-left">
+            <div class="textBoxCompany">@Html.TextBoxFor(model => model.ExcludedFileTypes, new { maxlength = 50, @class = "form-control" })
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="form-group">
+        <div class="pull-left LableFont">
+            <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Exclude File Paths</label>
+        </div>
+        <div class="pull-left">
+            <div class="textBoxCompany">@Html.TextBoxFor(model => model.ExcludedFilePaths, new { maxlength = 50, @class = "form-control" })
+            </div>
+        </div>
+    </div>
+</fieldset>

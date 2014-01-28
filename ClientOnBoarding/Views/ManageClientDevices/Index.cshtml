@@ -1,0 +1,56 @@
+﻿@model ClientOnBoarding.Models.tblClientSite
+
+<script src="@Url.Content("~/Scripts/ManageDevice/ManageDevice.js")"type="text/javascript"></script>
+
+<div class="pageBorder">
+    @*<div class="panel panel-default" style="margin-top: 20px;">*@
+    <div>
+        <div class="panel-body">
+            <div class="form-group">
+                <div class="pull-left LableFont">
+                    <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Client Site Name</label>
+                </div>
+
+                <div class="pull-left">
+                    <div class="textBoxCompany ">
+                        @Html.DropDownListFor(model => model.ClientID, new SelectList(ViewBag.CustomerClientSites, "ClientID", "BusinessName"), new { @class = "form-control" })
+                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.ClientID)</div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="form-group">
+                <div class="pull-left LableFont">
+                    <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Client Site Time Zone</label>
+                </div>
+                <div class="pull-left">
+                    <div class="textBoxCompany">@Html.TextBoxFor(model => model.TimeZone.ID, new { maxlength = 50, @class = "form-control", @disabled = "disabled" })
+                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.TimeZone.ID)</div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="clearfix"></div>
+            <div class="form-group">
+                <div class="pull-left LableFont">
+                    <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Client Site Status</label>
+                </div>
+                <div class="pull-left">
+                    <div class="textBoxCompany">@Html.TextBoxFor(model => model.Status.ID, new { maxlength = 50, @class = "form-control", @disabled = "disabled" })
+                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.ClientID)</div>
+                    </div>
+                    <a class="buttonhover disabled" data-action="ajax" id="add_clientdevice" href="/ManageClientDevices/Device" data-id="0" data-gridurl="/ManageClientDevices/DeviceGrid?page=1" data-clienturl="/ManageClientDevices/JsonClient" dialog-title="ADD DEVICE" dialog-resize="false" dialog-width="600" style="margin-left: 100px; text-decoration: none; float: left;">ADD DEVICE</a>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="clearfix"></div>
+            <div id="clientDeviceDetail">
+            </div>
+
+        </div>
+    </div>
+    @* </div>*@
+
+</div>
+

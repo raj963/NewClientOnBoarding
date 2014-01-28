@@ -1,0 +1,73 @@
+﻿@model ClientOnBoarding.Models.tblCustomerDetails
+<div id="dvUser">
+    <form class="form-horizontal customerForms" role="form" id="frmstaff" action="/ManageStaff/Staff" method="post">
+        <div class="DilogBoxWidth">
+            @Html.HiddenFor(model => model.CustomerID)
+            @Html.HiddenFor(model => model.RoleID)
+            <div class="form-group">
+                <div class="pull-left LableFont">
+                    <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Staff Name<span class="red"> *</span></label>
+                </div>
+                <div class="pull-left">
+                    <div class="textBoxCompany">@Html.TextBoxFor(model => model.CustomerName, new { maxlength = 50, @class = "form-control" })
+                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.CustomerName)</div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+             @if(Model.CustomerID > 0)
+            {
+            <div class="form-group aria-disabled ">
+                <div class="pull-left LableFont">
+                    <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Email Address<span class="red"> *</span></label> 
+                </div>
+                <div class="pull-left">
+                     @Html.HiddenFor(model => model.EmailAddress)
+                    <div class="textBoxCompany aria-disabled">
+                        @Html.DisplayFor(model=> model.EmailAddress, new { @class = "form-control",@readonly = "readonly" })
+                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.EmailAddress)</div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            }
+            else
+            {   <div class="form-group">
+                <div class="pull-left LableFont">
+                    <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Email Address<span class="red"> *</span></label>
+                </div>
+                <div class="pull-left">
+                    <div class="textBoxCompany ">
+
+                        @Html.TextBoxFor(model => model.EmailAddress, new {  @class = "form-control" })
+                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.EmailAddress)</div>
+
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>}
+
+            <div class="form-group">
+                <div class="pull-left LableFont">
+                    <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Password<span class="red"> *</span></label>
+                </div>
+                <div class="pull-left">
+                    <div class="textBoxCompany">@Html.PasswordFor(model => model.Password, new { maxlength = 50, @class = "form-control" ,@value = Model.Password })
+                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.Password)</div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <input type="checkbox" name="agree" style="margin-left: 300px; margin-top: 10px; float: left;" id="userPasswordChkbox">
+            <label class="labelcheckbox" for="agree" style="font-weight: 100; font-size: 14px;">
+                show text
+            </label>
+
+            <div class="clearfix"></div>
+            <div class="panel-footer" style="width: 637px; margin-left: -14px; margin-top: 25px;">
+                <button type="submit" class="btn btn-primary btn-sm customerSaveButton" id="Sbmt">&nbsp;&nbsp;&nbsp;SAVE&nbsp;&nbsp;&nbsp;</button>
+            </div>
+        </div>
+    </form>
+</div>

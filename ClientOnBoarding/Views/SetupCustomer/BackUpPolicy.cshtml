@@ -1,0 +1,161 @@
+﻿@*@model ClientOnBoarding.Models.tblBackUpPolicy
+
+<div id="dvBPPolicy">
+    <form class="form-horizontal customerForms" role="form" id="frmCustomer" action="/SetupCustomer/BackUpPolicy" method="post">
+        <div class="DilogBoxWidth">
+            @Html.HiddenFor(model => model.BackUpPolicyID)
+            <div class="form-group">
+                <div class="pull-left LableFont">
+                    <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Back Up Policy Name</label>
+                </div>
+                <div class="pull-left">
+                    <div class="textBoxCompany">@Html.TextBoxFor(model => model.PolicyName, new { maxlength = 50, @class = "form-control" })
+                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.PolicyName)</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="pull-left LableFont">
+                    <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Back Up Product Name</label>
+                </div>
+                <div class="pull-left">
+                    <div class="textBoxCompany">@Html.TextBoxFor(model => model.ProductName, new { maxlength = 50, @class = "form-control" })
+                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.ProductName)</div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="form-group">
+                <div class="pull-left LableFont">
+                    <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Volume Back Up Image Location</label>
+                </div>
+                <div class="pull-left">
+                    <div class="textBoxCompany">@Html.TextBoxFor(model => model.VolumeLocation, new { maxlength = 50, @class = "form-control" })
+                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.VolumeLocation)</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="pull-left LableFont">
+                    <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Folder Back Up Image Location</label>
+                </div>
+                <div class="pull-left">
+                    <div class="textBoxCompany">@Html.TextBoxFor(model => model.FolderLocation, new { maxlength = 50, @class = "form-control" })
+                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.FolderLocation)</div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="form-group">
+                <div class="pull-left LableFont">
+                    <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">BackUp Schedule </label>
+                </div>
+                <div class="pull-left">
+                    <div class="textBox customerPmExp gapt0p">
+                        @Html.TextBoxFor(model => model.ScheduleTime, new { maxlength = 50, @class = "timezoneTextbox form-control jquery_ptTimeSelect" })
+                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.ScheduleTime)</div>
+                    </div>
+                </div>
+                <div class="pull-left">
+                    <div class="textBox customerPmExp">
+                        @Html.DropDownListFor(model => model.ScheduleTimeZone.ID, new SelectList(ViewBag.TimeZones, "ID", "Name"), new { @class = "DropDownListexp form-control" })
+                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.ScheduleTimeZone.ID)</div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="clearfix"></div>
+            <div class="form-group">
+                <div class="pull-left LableFont">
+                    <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">BackUp Set Details</label>
+                </div>
+                <div class="pull-left">
+                    <div class="textBoxCompany">@Html.TextBoxFor(model => model.BackUpSetDetails, new { maxlength = 50, @class = "form-control" })
+                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.BackUpSetDetails)</div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="form-group">
+                <div class="pull-left LableFont">
+                    <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Differentials Every-Days</label>
+                </div>
+                <div class="pull-left">
+                    <div class="textBoxCompany">@Html.TextBoxFor(model => model.DifferentialEveryDay, new { maxlength = 50, @class = "form-control" })
+                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.DifferentialEveryDay)</div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="form-group">
+                <div class="pull-left LableFont">
+                    <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Number of BackUp Sets</label>
+                </div>
+                <div class="pull-left">
+                    <div class="textBoxCompany">@Html.TextBoxFor(model => model.PreviousBackupSaved, new { maxlength = 50, @class = "form-control" })
+                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.PreviousBackupSaved)</div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="form-group">
+                <div class="pull-left LableFont">
+                    <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Full BackUp Every-Day</label>
+                </div>
+                <div class="pull-left">
+                    <div class="textBoxCompany">@Html.TextBoxFor(model => model.FullBackUpEveryDay, new { maxlength = 50, @class = "form-control" })
+                        <div class="ValidationError">@Html.ValidationMessageFor(model => model.FullBackUpEveryDay)</div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <fieldset>
+                <legend>Credentials</legend>
+                <div class="form-group">
+                    <div class="pull-left LableFont">
+                        <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Domain Name</label>
+                    </div>
+
+                    <div class="pull-left">
+                        <div class="textBoxCompany">@Html.TextBoxFor(model => model.DomainName, new { maxlength = 50, @class = "form-control" })
+                            <div class="ValidationError">@Html.ValidationMessageFor(model => model.DomainName)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-group">
+                    <div class="pull-left LableFont">
+                        <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">User Name</label>
+                    </div>
+
+                    <div class="pull-left">
+                        <div class="textBoxCompany">@Html.TextBoxFor(model => model.UserName, new { maxlength = 50, @class = "form-control" })
+                            <div class="ValidationError">@Html.ValidationMessageFor(model => model.UserName)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-group">
+                    <div class="pull-left LableFont">
+                        <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Password</label>
+                    </div>
+
+                    <div class="pull-left">
+                        <div class="textBoxCompany">@Html.PasswordFor(model => model.Password, new { maxlength = 50, @class = "form-control", @value = Model.Password })
+                            <div class="ValidationError">@Html.ValidationMessageFor(model => model.Password)</div>
+                        </div>
+                    </div>
+                </div>
+                <input type="checkbox" name="agree" style="margin-left: 288px; margin-top: 10px; float: left;" id="backUpChkbox">
+                <label class="labelcheckbox" for="agree" style="font-weight: 100; font-size: 14px;">
+                    show text
+                </label>
+            </fieldset>
+            <div class="panel-footer" style="width: 633px; margin-left: -14px;">
+                <button type="submit" class="btn btn-primary btn-sm customerSaveButton" style="padding: 2px 10px;">&nbsp;&nbsp;&nbsp;SAVE&nbsp;&nbsp;&nbsp;</button>
+            </div>
+        </div>
+    </form>
+</div>
+*@

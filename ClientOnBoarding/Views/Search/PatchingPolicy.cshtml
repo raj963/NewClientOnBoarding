@@ -1,0 +1,332 @@
+﻿@model ClientOnBoarding.Models.tblPatchingPolicy
+
+@if (Model.PatchingPolicyIDWR > 0)
+{
+    <fieldset>
+        <legend>Workstation</legend>
+        <div class="clearfix"></div>
+        <div class="form-group">
+            <div class="pull-left LableFont">
+                <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Patching Policy Name</label>
+            </div>
+            <div class="pull-left">
+                <div class="textBoxCompany">@Html.TextBoxFor(model => model.PolicyNameWR, new { @disabled = "disabled", @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="form-group">
+            <div class="pull-left LableFont">
+                <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Patching Window </label>
+            </div>
+            <div class="pull-left">
+                <div class="textBox customerPmExp gapt0p">
+                    @Html.TextBoxFor(model => model.WindowStartTimeWR, new { @disabled = "disabled",  @class = "form-control jquery_ptTimeSelect" })
+                </div>
+            </div>
+            <div class="pull-left">
+                <div class="textBox customerPmExp gaptime">
+                    @Html.TextBoxFor(model => model.WindowEndTimeWR, new { @disabled = "disabled",  @class = "form-control jquery_ptTimeSelect" })
+                </div>
+            </div>
+            <div class="pull-left">
+                <div class="textBox customerPmExp">
+                    @Html.TextBoxFor(model => model.WindowTimeZoneWR.Name, new { @disabled = "disabled", @class = "DropDownListexp form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="form-group">
+            <div class="pull-left LableFont">
+                <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Define Patching Schedule  </label>
+            </div>
+            <div class="pull-left">
+                <div class="textBoxCompany">
+                    @Html.TextBoxFor(model => model.DefineScheduleTypeWR.Name, new { @disabled = "disabled", @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="form-group">
+            <div class="pull-left LableFont">
+                <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Define Week Day (for weekly schedule) </label>
+            </div>
+            <div class="pull-left">
+                <div class="textBoxCompany">
+                    @Html.TextBoxFor(model => model.WeekOfDayWR.Name, new { @disabled = "disabled", @class = "form-control" })
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+        <div class="form-group">
+            <div class="pull-left LableFont">
+                <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Define Month of Day (for Monthly Schedule) </label>
+            </div>
+
+            <div class="pull-left">
+                <div class="textBoxCompany">
+                    @Html.TextBoxFor(model => model.MonthOfDayWR.Name, new { @disabled = "disabled", @class = "form-control" })
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+        <div class="form-group">
+            <div class="pull-left LableFont">
+                <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Reboot Permission </label>
+            </div>
+            <div class="pull-left">
+                <div class="textBoxCompany">
+                    @Html.TextBoxFor(model => model.RebootPermissionWR.Name, new { @disabled = "disabled", @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="form-group">
+            <div class="pull-left LableFont">
+                <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Allowed Reboot Window</label>
+            </div>
+            <div class="pull-left">
+                <div class="textBox customerPmExp gapt0p">
+                    @Html.TextBoxFor(model => model.RebootWindowStartTimeWR, new { @disabled = "disabled",  @class = "form-control jquery_ptTimeSelect" })
+                </div>
+            </div>
+            <div class="pull-left">
+                <div class="textBox customerPmExp gaptime">
+                    @Html.TextBoxFor(model => model.RebootWindowEndTimeWR, new { @disabled = "disabled",  @class = "form-control jquery_ptTimeSelect" })
+                </div>
+            </div>
+            <div class="pull-left">
+                <div class="textBox customerPmExp">
+                    @Html.TextBoxFor(model => model.RebootWindowTimeZoneWR.Name, new { @disabled = "disabled", @class = "DropDownListexp form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </fieldset>
+}
+
+@if (Model.PatchingPolicyIDSR > 0)
+{
+    <fieldset>
+        <legend>Servers</legend>
+        <div class="clearfix"></div>
+        <div class="form-group">
+            <div class="pull-left LableFont">
+                <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Patching Policy Name</label>
+            </div>
+            <div class="pull-left">
+                <div class="textBoxCompany">@Html.TextBoxFor(model => model.PolicyNameSR, new { @disabled = "disabled",  @class = "form-control" })
+                </div>
+            </div>
+
+        </div>
+        <div class="clearfix"></div>
+        <div class="form-group">
+            <div class="pull-left LableFont">
+                <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Patching Window </label>
+            </div>
+            <div class="pull-left">
+                <div class="textBox customerPmExp gapt0p">
+                    @Html.TextBoxFor(model => model.WindowStartTimeSR, new { @disabled = "disabled",  @class = "form-control jquery_ptTimeSelect" })
+                </div>
+            </div>
+            <div class="pull-left">
+                <div class="textBox customerPmExp gaptime">
+                    @Html.TextBoxFor(model => model.WindowEndTimeSR, new { @disabled = "disabled",  @class = "form-control jquery_ptTimeSelect" })
+                </div>
+            </div>
+            <div class="pull-left">
+                <div class="textBox customerPmExp">
+                    @Html.TextBoxFor(model => model.WindowTimeZoneSR.Name, new { @disabled = "disabled", @class = "DropDownListexp form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="form-group">
+            <div class="pull-left LableFont">
+                <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Define Patching Schedule  </label>
+            </div>
+            <div class="pull-left">
+                <div class="textBoxCompany">
+                    @Html.TextBoxFor(model => model.DefineScheduleTypeSR.Name, new { @disabled = "disabled", @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="form-group">
+            <div class="pull-left LableFont">
+                <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Define Week Day (for weekly schedule) </label>
+            </div>
+            <div class="pull-left">
+                <div class="textBoxCompany">
+                    @Html.TextBoxFor(model => model.WeekOfDaySR.Name, new { @disabled = "disabled", @class = "form-control" })
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+        <div class="form-group">
+            <div class="pull-left LableFont">
+                <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Define Month of Day (for Monthly Schedule) </label>
+            </div>
+
+            <div class="pull-left">
+                <div class="textBoxCompany">
+                    @Html.TextBoxFor(model => model.MonthOfDaySR.Name, new { @disabled = "disabled", @class = "form-control" })
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+        <div class="form-group">
+            <div class="pull-left LableFont">
+                <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Reboot Permission </label>
+            </div>
+            <div class="pull-left">
+                <div class="textBoxCompany">
+                    @Html.TextBoxFor(model => model.RebootPermissionSR.Name, new { @disabled = "disabled", @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="form-group">
+            <div class="pull-left LableFont">
+                <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Allowed Reboot Window</label>
+            </div>
+            <div class="pull-left">
+                <div class="textBox customerPmExp gapt0p">
+                    @Html.TextBoxFor(model => model.RebootWindowStartTimeSR, new { @disabled = "disabled",  @class = "form-control jquery_ptTimeSelect" })
+                </div>
+            </div>
+            <div class="pull-left">
+                <div class="textBox customerPmExp gaptime">
+                    @Html.TextBoxFor(model => model.RebootWindowEndTimeSR, new { @disabled = "disabled",  @class = "form-control jquery_ptTimeSelect" })
+                </div>
+            </div>
+            <div class="pull-left">
+                <div class="textBox customerPmExp">
+                    @Html.TextBoxFor(model => model.RebootWindowTimeZoneSR.Name, new { @disabled = "disabled", @class = "DropDownListexp form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+
+    </fieldset>
+}
+
+@if (Model.PatchingPolicyIDDND > 0)
+{
+    <fieldset>
+        <legend>Network Devices</legend>
+
+        @Html.HiddenFor(model => model.PatchingPolicyIDDND)
+        <div class="clearfix"></div>
+        <div class="form-group">
+            <div class="pull-left LableFont">
+                <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Patching Policy Name</label>
+            </div>
+            <div class="pull-left">
+                <div class="textBoxCompany">@Html.TextBoxFor(model => model.PolicyNameND, new { @disabled = "disabled",  @class = "form-control" })
+                </div>
+            </div>
+
+        </div>
+        <div class="clearfix"></div>
+        <div class="form-group">
+            <div class="pull-left LableFont">
+                <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Patching Window </label>
+            </div>
+            <div class="pull-left">
+                <div class="textBox customerPmExp gapt0p">
+                    @Html.TextBoxFor(model => model.WindowStartTimeND, new { @disabled = "disabled",  @class = "form-control jquery_ptTimeSelect" })
+                </div>
+            </div>
+            <div class="pull-left">
+                <div class="textBox customerPmExp gaptime">
+                    @Html.TextBoxFor(model => model.WindowEndTimeND, new { @disabled = "disabled",  @class = "form-control jquery_ptTimeSelect" })
+
+                </div>
+            </div>
+            <div class="pull-left">
+                <div class="textBox customerPmExp">
+                    @Html.TextBoxFor(model => model.WindowTimeZoneND.Name, new { @disabled = "disabled", @class = "DropDownListexp form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="form-group">
+            <div class="pull-left LableFont">
+                <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Define Patching Schedule  </label>
+            </div>
+            <div class="pull-left">
+                <div class="textBoxCompany">
+                    @Html.TextBoxFor(model => model.DefineScheduleTypeND.Name, new { @disabled = "disabled", @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="form-group">
+            <div class="pull-left LableFont">
+                <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Define Week Day (for weekly schedule) </label>
+            </div>
+            <div class="pull-left">
+                <div class="textBoxCompany">
+                    @Html.TextBoxFor(model => model.WeekOfDayND.Name, new { @disabled = "disabled", @class = "form-control" })
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+        <div class="form-group">
+            <div class="pull-left LableFont">
+                <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Define Month of Day (for Monthly Schedule) </label>
+            </div>
+
+            <div class="pull-left">
+                <div class="textBoxCompany">
+                    @Html.TextBoxFor(model => model.MonthOfDayND.Name, new { @disabled = "disabled", @class = "form-control" })
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+        <div class="form-group">
+            <div class="pull-left LableFont">
+                <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Reboot Permission </label>
+            </div>
+            <div class="pull-left">
+                <div class="textBoxCompany">
+                    @Html.TextBoxFor(model => model.RebootPermissionND.Name, new { @disabled = "disabled", @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="form-group">
+            <div class="pull-left LableFont">
+                <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Allowed Reboot Window</label>
+            </div>
+            <div class="pull-left">
+                <div class="textBox customerPmExp gapt0p">
+                    @Html.TextBoxFor(model => model.RebootWindowStartTimeND, new { @disabled = "disabled",  @class = "form-control jquery_ptTimeSelect" })
+                </div>
+            </div>
+            <div class="pull-left">
+                <div class="textBox customerPmExp gaptime">
+                    @Html.TextBoxFor(model => model.RebootWindowEndTimeND, new { @disabled = "disabled",  @class = "form-control jquery_ptTimeSelect" })
+                </div>
+            </div>
+            <div class="pull-left">
+                <div class="textBox customerPmExp">
+                    @Html.TextBoxFor(model => model.RebootWindowTimeZoneND.Name, new { @disabled = "disabled", @class = "DropDownListexp form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </fieldset>
+}
+
+

@@ -1,0 +1,171 @@
+﻿@model ClientOnBoarding.Models.tblClientSiteDevice
+
+<div id="dvDevice" class="DilogBoxWidth">
+    <form class="form-horizontal customerForms" role="form" id="frmCustomer" action="/ManageClientDevices/Device" method="post">
+        @Html.HiddenFor(model => model.ClientID)
+        @Html.HiddenFor(model => model.DeviceID)
+
+        <div class="form-group">
+            <div class="pull-left LableFont">
+                <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Device Type</label>
+            </div>
+            <div class="pull-left">
+                <div class="textBoxCompany">
+                    @Html.DropDownListFor(model => model.DeviceType.ID, new SelectList(ViewBag.DeviceType1, "ID", "Name"), new { @class = "form-control" })
+                    <div class="ValidationError">@Html.ValidationMessageFor(model => model.DeviceType.ID)</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="pull-left LableFont">
+                <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Device ID from RMM tool<span class="red"> *</span></label>
+            </div>
+            <div class="pull-left">
+                <div class="textBoxCompany">@Html.TextBoxFor(model => model.DeviceIDFromRMMTool, new { maxlength = 50, @class = "form-control" })
+                    <div class="ValidationError">@Html.ValidationMessageFor(model => model.DeviceIDFromRMMTool)</div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="form-group">
+            <div class="pull-left LableFont">
+                <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Device  Description</label>
+            </div>
+            <div class="pull-left">
+                <div class="textBoxCompany">@Html.TextBoxFor(model => model.DeviceDescription, new { maxlength = 50, @class = "form-control" })
+                    <div class="ValidationError">@Html.ValidationMessageFor(model => model.DeviceDescription)</div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+
+        <div class="form-group">
+            <div class="pull-left LableFont">
+                <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">User Name</label>
+            </div>
+
+            <div class="pull-left">
+                <div class="textBoxCompany">@Html.TextBoxFor(model => model.UserName, new { maxlength = 50, @class = "form-control" })
+                    <div class="ValidationError">@Html.ValidationMessageFor(model => model.UserName)</div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+
+        <div class="form-group">
+            <div class="pull-left LableFont">
+                <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Password</label>
+            </div>
+
+            <div class="pull-left">
+                <div class="textBoxCompany">@Html.PasswordFor(model => model.Password, new { maxlength = 50, @class = "form-control", @value = Model.Password })
+                    <div class="ValidationError">@Html.ValidationMessageFor(model => model.Password)</div>
+                </div>
+            </div>
+            <input type="checkbox" name="agree" style="margin-left: 300px; margin-top: 10px; float: left;" id="ClientDeviceChkbox">
+            <label class="labelcheckbox" for="agree" style="font-weight: 100; font-size: 14px;">
+                show text
+            </label>
+
+        </div>
+        <div class="clearfix"></div>
+        <div class="clearfix"></div>
+        <div class="form-group">
+            <div class="pull-left LableFont">
+                <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Misc Informaiton</label>
+            </div>
+
+            <div class="pull-left">
+                <div class="textBoxCompany">@Html.TextBoxFor(model => model.MiscInfo, new { maxlength = 50, @class = "form-control", @value = Model.Password })
+                    <div class="ValidationError">@Html.ValidationMessageFor(model => model.Password)</div>
+                </div>
+            </div>          
+        </div>
+        <div class="clearfix"></div>
+        <div class="form-group">
+            <div class="pull-left LableFont">
+                <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Access Policy</label>
+            </div>
+            <div class="pull-left">
+                <div class="textBoxCompany">
+                    @Html.DropDownListFor(model => model.IsAccessPolicy.ID, new SelectList(ViewBag.Accesspoly, "AccessPolicyID", "productname"), new { @class = "form-control" })
+                    <div class="ValidationError">@Html.ValidationMessageFor(model => model.IsAccessPolicy.ID)</div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+
+        <div class="form-group">
+            <div class="pull-left LableFont">
+                <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Maintenance Policy</label>
+            </div>
+
+            <div class="pull-left">
+                <div class="textBoxCompany">
+                    @Html.DropDownListFor(model => model.IsMaintenancePolicy.ID, new SelectList(ViewBag.Maintenancepoly, "MaintenancePolicyID", "ActivityName"), new { @class = "form-control" })
+                    <div class="ValidationError">@Html.ValidationMessageFor(model => model.IsMaintenancePolicy.ID)</div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+
+        <div class="form-group">
+            <div class="pull-left LableFont">
+                <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Patching Policy</label>
+            </div>
+
+            <div class="pull-left">
+                <div class="textBoxCompany">
+                    @Html.DropDownListFor(model => model.IsPatchingPolicy.ID, new SelectList(ViewBag.PatchingPoly, "PatchingPolicyIDWR", "PolicyNameND"), new { @class = "form-control" })
+                    <div class="ValidationError">@Html.ValidationMessageFor(model => model.IsPatchingPolicy.ID)</div>
+                </div>
+            </div>
+        </div>
+        @* <div class="clearfix"></div>
+
+        <div class="form-group">
+            <div class="pull-left LableFont">
+                <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Anti-Virus Policy</label>
+            </div>
+            <div class="pull-left">
+                <div class="textBoxCompany">
+                    @Html.DropDownListFor(model => model.IsAntiVirus.ID, new SelectList(ViewBag.Antiviruspoly, "AntiVirusID", "PolicyName"), new { @class = "form-control" })
+                    <div class="ValidationError">@Html.ValidationMessageFor(model => model.IsAntiVirus.ID)</div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+
+        <div class="form-group">
+            <div class="pull-left LableFont">
+                <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">Backup Policy</label>
+            </div>
+            <div class="pull-left">
+                <div class="textBoxCompany">
+                    @Html.DropDownListFor(model => model.IsBackUpPolicy.ID, new SelectList(ViewBag.Backuppoly, "BackUpPolicyID", "PolicyName"), new { @class = "form-control" })
+                    <div class="ValidationError">@Html.ValidationMessageFor(model => model.IsBackUpPolicy.ID)</div>
+                </div>
+            </div>
+        </div>*@
+        <div class="clearfix"></div>
+
+        <div class="form-group">
+            <div class="pull-left LableFont">
+                <label for="inputCompnay" class="col-lg-2 control-label LableWidthEXception">RMM Tool Information</label>
+            </div>
+            <div class="pull-left">
+                <div class="textBoxCompany">
+                    @Html.DropDownListFor(model => model.IsRMMTool.ID, new SelectList(ViewBag.ToolInfoPoly, "ToolIDRT", "RMMTool"), new { @class = "form-control" })
+                    <div class="ValidationError">@Html.ValidationMessageFor(model => model.IsRMMTool.ID)</div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer" style="width: 637px; margin-left: -14px; margin-top: 24px;">
+            <button type="submit" class="btn btn-primary btn-sm customerSaveButton">&nbsp;&nbsp;&nbsp;SAVE&nbsp;&nbsp;&nbsp;</button>
+
+        </div>
+    </form>
+</div>
+
+
+
